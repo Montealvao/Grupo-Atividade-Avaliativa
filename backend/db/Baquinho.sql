@@ -1,3 +1,7 @@
+create database sistema_de_reserva;
+
+use sistema_de_reserva;
+
 create table usuarios(
 id int auto_increment primary key,
 nome varchar(100) not null,
