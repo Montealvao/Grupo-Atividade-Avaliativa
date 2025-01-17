@@ -6,6 +6,7 @@ create table usuarios(
 id int auto_increment primary key,
 nome varchar(100) not null,
 email varchar(100) unique not null,
+senha varchar(16),
 telefone varchar(20) unique not null
 );
 
@@ -26,8 +27,8 @@ foreign key (id_espaco) references espacos(id)
 );
 
 insert into usuarios values
-(default,"Samuca","samuca@gmail.com","67999999999"),
-(default,"joao","joao@gmail.com","67988888888");
+(default,"Samuca","samuca@gmail.com","123","67999999999"),
+(default,"joao","joao@gmail.com","321","67988888888");
 
 insert into espacos values
 (default, "Quadra de futsal", 12, "uma quadra bem limpa e com gols com rede 12x8"),
