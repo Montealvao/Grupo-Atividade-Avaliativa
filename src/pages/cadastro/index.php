@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>loigin</h1>
-    <form action="../../../backend/router/loginRouter.php?action=validarLogin" method="POST">
+    <h1>Cad</h1>
+    <form action="" method="POST">
         <input type="password" placeholder="Senha" name="senha">
         <input type="text" placeholder="Email" name="email">
         <button type="submit">Logar</button>
