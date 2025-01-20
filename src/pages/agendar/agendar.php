@@ -12,5 +12,29 @@
         <button>AGENDAR BUTAO</button>
     </form>
     
+    
+
+    <form action="">
+
+
+        <div>
+            <h2>
+                <h3>MACDONALDS</h3>
+                
+                <select name="" id="">
+                    <option value="">1:30</option>
+                    <option value="">3:30</option>
+                    <option value="">5:30</option>
+                </select>
+
+                <p>
+                    <button> RESERVAR </button>
+                </p>
+
+            </h2>
+        </div>
+    </form>
+
+
 </body>
 </html> 
