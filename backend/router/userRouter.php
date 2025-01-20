@@ -6,7 +6,7 @@ $userController = new userController();
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_GET["acao"]) {
-        case 'signUp':
+        case 'cadastrar':
             if(!(empty($_POST['name']) || empty($_POST['password']))){
                 $resultado = $userController->CriarUsuario($_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]);
                 if($resultado){
@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 }else{
                     header("location: ../../pages/signUp/index.php?error=true");
                 }
-            }else{
+            }else{ 
                 header("location: ../../pages/signUp/index.php?error=true");
             }
             break;

@@ -1,9 +1,4 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["id"])){
-        header("location: ../../index.php");
-    }
-
     include  __DIR__ . "/../../backend/controller/userController.php";
     $userController = new UserController();
 
@@ -15,10 +10,10 @@
         'telefone' => ""
     ];
 
-    $acao = "signUp";
+    $acao = "cadastrar";
     $buttonTitle = "Criar Conta";
     if (isset($_GET["id"])){
-        $action = "edit";
+        $acao = "edit";
         $buttonTitle = "Confirmar mudanças";
     }
 
@@ -26,7 +21,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>dfdd bv -- 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
