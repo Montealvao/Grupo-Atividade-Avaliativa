@@ -10,7 +10,7 @@ class userController{
         $this->coon = $dbase->connect();
     }
 
-    public function getAlluser(){
+    public function PegarTodosUsuarios(){
         try {
             $sql = "SELECT * FROM usuarios";
             $db = $this->coon->prepare($sql);
@@ -22,7 +22,7 @@ class userController{
         }
     }
 
-    public function CreateUser($nome,$email,$senha,$telefone){
+    public function CriarUsuario($nome,$email,$senha,$telefone){
         try {
             $sql = "INSERT INTO usuarios(nome,email,senha,telefone) VALUES(:nome,:email,:senha,:telefone)";
             $db = $this->coon->prepare($sql);
@@ -40,7 +40,7 @@ class userController{
         }
     }        
 
-    public function getUserById($id){
+    public function PegarUsuarioPorId($id){
         try {
             $sql = "SELECT * FROM users WHERE id = :id";
             $db = $this->coon->prepare($sql);
@@ -57,7 +57,7 @@ class userController{
         }
     }        
 
-    public function UserUpdate($id, $nome,$senha,$email,$telefone){
+    public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){
         try {
             $sql = "UPDATE users SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
             $db = $this->coon->prepare($sql);
@@ -76,7 +76,7 @@ class userController{
         }
     } 
     
-    public function deleteUser($id){
+    public function ApagarUsuario($id){
         try {
             $sql = "DELETE FROM users WHERE id = :id";
             $db = $this->coon->prepare($sql);
