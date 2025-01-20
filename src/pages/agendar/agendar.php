@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1>AGENDAR PAGINA</h1>
-    <form action="../../../backend/router/loginRouter.php">
+    <form action="../../../backend/router/loginRouter.php?action=validarsessao" method="POST">
         <p>agendar horario</p>
         <button>AGENDAR BUTAO</button>
     </form>
     
 </body>
-</html>
+</html> 

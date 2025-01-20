@@ -19,6 +19,7 @@ class LoginController{
         echo $db->execute();
         $usuario = $db->fetchAll();
 
+
         if ($usuario){
             session_start();
             $_SESSION["id_usuario"] = $usuario[0]["id"];
