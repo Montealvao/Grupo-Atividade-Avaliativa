@@ -8,7 +8,7 @@
 <body>
     <h1>HOME</h1>
     <form action="../agendar/agendar.php">
-        <p>ir página agendar</p>
+        <p class="bg-slate-600">ir página agendar</p>
         <button type="submit">IR</button>
     </form>
 </body>
