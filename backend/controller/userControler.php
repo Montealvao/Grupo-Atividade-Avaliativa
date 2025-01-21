@@ -42,7 +42,7 @@ class userController{
 
     public function PegarUsuarioPorId($id){
         try {
-            $sql = "SELECT * FROM users WHERE id = :id";
+            $sql = "SELECT * FROM usuarios WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id",$id);
             $db->execute();
@@ -59,7 +59,7 @@ class userController{
 
     public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){
         try {
-            $sql = "UPDATE users SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
+            $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":email",$email);
@@ -78,7 +78,7 @@ class userController{
     
     public function ApagarUsuario($id){
         try {
-            $sql = "DELETE FROM users WHERE id = :id";
+            $sql = "DELETE FROM usuarios WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id",$id);
             if($db->execute()){
