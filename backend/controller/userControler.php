@@ -42,7 +42,7 @@ class userController{
 
     public function getUserById($id){
         try {
-            $sql = "SELECT * FROM users WHERE id = :id";
+            $sql = "SELECT * FROM usuarios WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id",$id);
             $db->execute();
@@ -71,6 +71,7 @@ class userController{
             }else{
                 return false;
             }
+            
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -91,4 +92,84 @@ class userController{
         }
     } 
 
+    public function getRoomById($id){
+        try {
+            $sql = "SELECT * FROM espacos WHERE id = :id";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":id",$id);
+            $db->execute();
+            $id_room = $db->fetch(PDO::FETCH_ASSOC);
+            if($id_room){
+                return $id_room;
+            }else{
+                return false;
+            }
+        } catch (\Throwable $th) {
+
+        }
+    }    
+    
+    
+    public function adicionarReserva($id_usuario,$id_espaco,$data){
+        try{
+            // verificar se já existe uma reserva
+
+            $sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
+            $db = $this->coon->prepare($sql);
+            //$db->bindParam(":id_espaco",$id_espaco);
+            //$db->bindParam(":data",$data);
+            $db->execute([
+                ":id_espaco" => $id_espaco,
+                ":data" => $data,
+            ]);
+            $reservaExistente = $db->fetchColumn();
+            if ($reservaExistente>0){
+                echo "ja existe uma reserva no espaco e horario";
+            }
+
+
+            else{
+                //ISERT NA TABELA RESERVA
+                $sql = "INSERT INTO reservas  VALUES (default,:id_usuario, :id_espaco, :data)";
+                $db = $this->coon->prepare($sql);
+                //$db->bindParam(":id_usuario", $id_usuario);
+                //$db->bindParam(":id_room", $id_room);
+                //$db->bindParam(":data", $data);
+                $db->execute([
+                    ":id_usuario"=> $id_usuario,
+                    ":id_espaco"=> $id_espaco,
+                    ":data"=>$data,
+                ]);
+                echo "reserva inserida com susseso";
+            }
+
+
+            }
+        catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+
+        }
+
+    public function verTodasAsReservas(){
+        try {
+            $sql = "SELECT espacos.nome, reservas.data FROM espacos INNER JOIN reservas WHERE reservas.id_espaco = espacos.id";
+            $db = $this->coon->prepare($sql);
+            $db->execute();
+            $reservas = $db->fetchAll(PDO::FETCH_ASSOC);
+            return $reservas;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    
+    }
+
+  
+
+
+
+
 }
+
+
+
