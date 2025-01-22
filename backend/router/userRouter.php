@@ -1,6 +1,7 @@
 <?php
 
-include __DIR__ . "/../controller/userController.php";
+require __DIR__ . "/../controller/userController.php";
+
 
 $userController = new userController();
 
@@ -9,13 +10,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'cadastrar':
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) empty($_POST['telefone']))){
                 $resultado = $userController->CriarUsuario($_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]);
+                echo $resultado;
                 if($resultado){
-                    header("location: ../../pages/home/index.php");
+                    header("location: ../../src/pages/home/index.php");
                 }else{
-                    header("location: ../../pages/cadastro/index.php?error=true");
+                    header("location: ../../src/pages/cadastro/index.php?error=true");
                 }
             }else{ 
-                header("location: ../../pages/cadastro/index.php?error=true");
+                header("location: ../../src/pages/cadastro/index.php?error=true");
             }
             break;
         
