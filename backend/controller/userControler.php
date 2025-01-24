@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\type;
+
 include __DIR__ . "/../db/database.php";
 
 class userController{
@@ -123,8 +125,9 @@ class userController{
                 ":data" => $data,
             ]);
             $reservaExistente = $db->fetchColumn();
-            if ($reservaExistente>0){
-                echo "ja existe uma reserva no espaco e horario";
+
+            if ($reservaExistente>0){   
+                echo "ja existe uma reserva no espaco e horario";  
             }
 
 
@@ -142,7 +145,6 @@ class userController{
                 ]);
                 echo "reserva inserida com susseso";
             }
-
 
             }
         catch (\Throwable $th) {

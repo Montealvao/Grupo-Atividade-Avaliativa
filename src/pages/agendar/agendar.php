@@ -3,18 +3,22 @@
 session_start();
 include __DIR__ . "/../../../backend/controller/userControler.php";
 
+// if(!isset($_GET["id_espaco"])) {
+//     header("Location: ../home");
+// }
+
+// $id_espaco = $_GET["id_espaco"];
+
+
 $controller = new userController();
 
-$controller ->getRoomById(1);
+// $controller ->getRoomById($id_espaco);
 
 
-$controller->adicionarReserva(1,1,"2025-10-10 15:00:00");
+
+$controller->adicionarReserva(1,1,"2025-10-10 15:00:30");
 
 $reservas = $controller->verTodasAsReservas();
-
-
-
-
 
 ?>
 
@@ -33,15 +37,6 @@ $reservas = $controller->verTodasAsReservas();
     <form action="../../../backend/router/loginRouter.php?action=validarsessao" method="POST">
         <p>agendar horario</p>
         <button>AGENDAR BUTAO</button>
-    </form>
-    
-    
-    
-
-
-
-
-    <form action="">
 
 
         <div>

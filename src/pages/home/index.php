@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>HOME</h1>
-    <form action="../agendar/agendar.php">
+    <form action="../agendar/agendar.php?id_espaco=1" method="GET">
+        <p><h3>MCDONALDS</h3></p>
         <p>ir página agendar</p>
         <button type="submit">IR</button>
     </form>
