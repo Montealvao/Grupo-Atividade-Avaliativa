@@ -6,13 +6,26 @@
 body{
     background-color: black;
     height: 100vh;
-}
-form{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
+
+.form-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    background-color: #1E1E1E;
+    border-radius: 0.5rem;
+
+}   
 
 img{
     width: 52rem;
@@ -23,19 +36,18 @@ img{
     justify-content: space-between;
     align-items: center;
     border: 0.1rem gray solid;
+    width: 80%;
 }
 
 .botoes-cadastro{
-    width: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    background-color: #1E1E1E;
 }
 
-.botoes-cadastro img{
+form img{
     width: 6rem;
     margin-bottom: 4rem ;
 }
@@ -53,7 +65,7 @@ img{
     color: #CED4DA;
 }
 
-.btn:nth-child(6){
+.btn:nth-child(5){
     background-color:  #13C296;
     margin-top: 2rem;
     width: 21.2rem;
