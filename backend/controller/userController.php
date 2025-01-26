@@ -31,7 +31,7 @@ class userController{
             $db->bindParam(":senha",$senha);
             $db->bindParam(":telefone",$telefone);
             if($db->execute()){
-                return true;
+                return ['id' => $this->coon->lastInsertId()];
             }else{
                 return false;
             }
