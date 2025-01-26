@@ -16,9 +16,10 @@ $controller = new userController();
 
 // $controller ->getRoomById($id_espaco);
 
+$id_usuario = $_SESSION['id_usuario'];
 
 
-$reservas = $controller->verTodasAsReservas();
+$reservas = $controller->verTodasAsReservasPorId($id_usuario);
 
 
 if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado'])) {
@@ -80,7 +81,7 @@ if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado']))
 
                         <tbody>
                                 <?php
-                                $i=1;
+                                $i=0;
                             foreach($reservas as $item){
                                 ?>
                                 <tr>

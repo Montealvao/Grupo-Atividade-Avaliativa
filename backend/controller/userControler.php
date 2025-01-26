@@ -156,10 +156,12 @@ class userController{
 
         }
 
-    public function verTodasAsReservas(){
+    public function verTodasAsReservasPorId($id_usuario){
         try {
-            $sql = "SELECT espacos.nome, reservas.data FROM espacos INNER JOIN reservas WHERE reservas.id_espaco = espacos.id";
+            $sql = " SELECT reservas.data, espacos.nome FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
+ WHERE reservas.id_usuario = :id_usuario";
             $db = $this->coon->prepare($sql);
+            $db->bindParam(":id_usuario", $id_usuario);
             $db->execute();
             $reservas = $db->fetchAll(PDO::FETCH_ASSOC);
             return $reservas;
