@@ -116,18 +116,21 @@ class userController{
         try{
             // verificar se já existe uma reserva
 
-            $sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
+            //$sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
+            $sql = "SELECT COUNT(*) 
+                FROM reservas 
+                INNER JOIN espacos ON espacos.id = reservas.id_espaco 
+                WHERE reservas.id_espaco = :id_espaco";
             $db = $this->coon->prepare($sql);
             //$db->bindParam(":id_espaco",$id_espaco);
             //$db->bindParam(":data",$data);
             $db->execute([
-                ":id_espaco" => $id_espaco,
-                ":data" => $data,
+                ":id_espaco" => $id_espaco, 
             ]);
             $reservaExistente = $db->fetchColumn();
 
             if ($reservaExistente>0){   
-                echo "ja existe uma reserva no espaco e horario";  
+                echo "Espaço já reservado";  
             }
 
 
@@ -143,7 +146,7 @@ class userController{
                     ":id_espaco"=> $id_espaco,
                     ":data"=>$data,
                 ]);
-                echo "reserva inserida com susseso";
+                header("location: agendarOK.php");
             }
 
             }

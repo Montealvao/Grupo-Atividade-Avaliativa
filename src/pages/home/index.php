@@ -7,10 +7,15 @@
 </head>
 <body>
     <h1>HOME</h1>
-    <form action="../agendar/agendar.php?id_espaco=1" method="GET">
-        <p><h3>MCDONALDS</h3></p>
+    <form action="../agendar/agendar.php" method="GET">
+        <p><h3>QUADRA de FUTSal</h3></p>
         <p>ir página agendar</p>
-        <button type="submit">IR</button>
+        <button type="submit" name="id_espaco" value="1">IR</button>
+    </form>
+    <form action="../agendar/agendar.php?id_espaco=2" method="GET">
+        <p><h3>SAlaãozinho de festa</h3></p>
+        <p>ir página agendar</p>
+        <button type="submit" name="id_espaco" value="2">IR</button>
     </form>
 </body>
 </html>

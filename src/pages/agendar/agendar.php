@@ -3,11 +3,13 @@
 session_start();
 include __DIR__ . "/../../../backend/controller/userControler.php";
 
-// if(!isset($_GET["id_espaco"])) {
-//     header("Location: ../home");
-// }
+if (!isset($_SESSION["id_usuario"])){
+    header("location: ../login/login.php");
+}
 
-// $id_espaco = $_GET["id_espaco"];
+if (!isset($_GET['id_espaco'])){
+    header("location: ../home/index.php");
+}
 
 
 $controller = new userController();
@@ -16,9 +18,21 @@ $controller = new userController();
 
 
 
-$controller->adicionarReserva(1,1,"2025-10-10 15:00:30");
-
 $reservas = $controller->verTodasAsReservas();
+
+
+if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado'])) {
+
+    $dataAmanha = date('Y-m-d ', strtotime('+1 day'));
+
+    $data = $_POST['horarioSelecionado'];
+    $data = strval($data);
+
+    $data = $dataAmanha . $data;
+    $id_usuario = $_SESSION['id_usuario'];
+    $id_espaco = $_GET['id_espaco'];
+    $controller->adicionarReserva($id_usuario, $id_espaco ,$data);
+}
 
 ?>
 
@@ -34,19 +48,26 @@ $reservas = $controller->verTodasAsReservas();
 </head>
 <body>
     <h1>AGENDAR PAGINA</h1>
-    <form action="../../../backend/router/loginRouter.php?action=validarsessao" method="POST">
-        <p>agendar horario</p>
-        <button>AGENDAR BUTAO</button>
 
+    <form action="" method="POST">
 
+        <select name="horarioSelecionado" id="">
+
+            <option value="12:00:00">12:00</option>
+            <option value="13:00:00">13:00</option>
+            <option value="17:00:00">17:00</option>
+            
+        </select>
+        
+        <button>AGENDAR</button>
+
+    </form>
+
+    
         <div>
             <h2>
-                <h3>MACDONALDS</h3>
-                    <select name="selectHorarios" id="">
-                        <option value="">1:30</option>
-                        <option value="">3:30</option>
-                        <option value="">5:30</option>
-                    </select>
+                <h3> NOME DE EsPAÇo </h3>
+                   
                     
 
                     <table>
@@ -71,23 +92,19 @@ $reservas = $controller->verTodasAsReservas();
                                 </tr>
                            <?php } ?>
                         </tbody>
-
-
-        
-                        
-                    
                     
                 </table>
 
-
-                <p>
-                    <button> RESERVAR </button>
-                </p>
             </h2>
         </div>
-    </form>
 
     
 
 </body>
 </html> 
+
+
+
+
+
+

@@ -11,6 +11,6 @@
         <input type="password" placeholder="Senha" name="senha">
         <input type="text" placeholder="Email" name="email">
         <button type="submit">Logar</button>
-    </form>404?
+    </form>
 </body>
 </html>
