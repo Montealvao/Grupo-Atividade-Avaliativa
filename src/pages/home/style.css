@@ -141,3 +141,45 @@ footer{
 footer img{
     width: 4rem;
 }
+
+
+@media (max-width: 768px){
+    
+    header{
+        justify-content: flex-start;
+        gap: 12rem;
+    }
+
+    .H-esquerdo h2{
+        font-size: 10pt;
+    }
+
+    .imagens img{
+        width: 50%;
+        height: 10rem;
+    }
+
+    .controle{
+        margin-left: 0;
+
+    }
+
+    .imagens-restaurante{
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .imagens-restaurante img{
+        width: 20rem;
+        height: 10rem;
+        
+    }
+
+}
+
+@media (max-width: 425px){
+
+}
