@@ -168,7 +168,25 @@ class userController{
         } catch (\Throwable $th) {
             //throw $th;
         }
+        
+    }
     
+    
+    public function cancelarReserva($nome_espaco){
+        try{
+            $sql = "DELETE reservas FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
+            WHERE espacos.nome = :nome_espaco";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":nome_espaco", $nome_espaco);
+            $db->execute();
+            echo "Reserva cancelada";
+            }
+            catch (\Throwable $th) {
+                //throw $th;
+            }
+        
+
+
     }
 
   

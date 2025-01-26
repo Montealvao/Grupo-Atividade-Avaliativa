@@ -35,6 +35,25 @@ if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado']))
     $controller->adicionarReserva($id_usuario, $id_espaco ,$data);
 }
 
+
+// cancelar reserva por nome
+// <form action="" method="POST">
+//             <h2>cancelar reserva</h2>
+//             <input name="nome_espaco" type="text">
+//             <button type="submit">enviar</button>
+
+
+//         </form>
+
+// if (isset($_POST['nome_espaco'])){
+//     $nome_espaco = $_POST['nome_espaco'];
+//     $controller->cancelarReserva($nome_espaco);
+// }
+
+
+
+
+
 ?>
 
 
@@ -99,12 +118,12 @@ if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado']))
             </h2>
         </div>
 
+      
+
     
 
 </body>
 </html> 
-
-
 
 
 
