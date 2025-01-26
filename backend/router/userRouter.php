@@ -21,16 +21,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             }
             break;
         
-        case "edit":
+        case "editar":
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
-                $resultado = $userController->AtualizarUsuario($_POST["id"], $_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]);
+                // $foto_perfil = null;
+                // if (!empty($_FILES['foto_perfil']['name'])){
+                //     $dir = __DIR__ . "/../../public/uploads/";
+                //     $file = $dir . basename($_FILES["foto_perfil"]["name"]);
+                //     if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file)){
+                //         $foto_perfil = $file;
+                //     } else {
+                //         echo "Erro ao carregar.";
+                //         exit();
+                //     }
+                // }
+                $resultado = $userController->AtualizarUsuario($_POST["id"], $_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]); ##colocar $foto_perfil
                 if($resultado){
-                    header("location: ../../pages/home/index.php");
+                    header("location: ../../src/pages/perfil/perfil.php");
                 }else{
-                    header("location: ../../pages/signUp/index.php?error=true");
+                    echo "Erro ao atualizar o usuario";
+                    exit();
+                    // header("location: ../../src/pages/perfil/perfil.php?error=true");
                 }
             }else{
-                header("location: ../../pages/signUp/index.php?error=true");
+                echo "Campos obrigatorios estao faltando.";
+                exit();
+                // header("location: ../../src/pages/perfil/perfil.php?error=true");
             }
             break;
         
