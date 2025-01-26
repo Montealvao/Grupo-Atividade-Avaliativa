@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+    color: white;
+    height: 100vh;
+    position: relative;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.H-esquerdo{
+    display: flex;
+    gap: 1rem;
+    margin-left: 1.5rem;
+}
+
+.controle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.lista-controle{
+    border:  0.1rem gray solid;
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.lista-controle thead{
+    background-color: #1E1E1E;
+}
+
+.lista-controle tbody{
+    background-color: #13C296;
+    color: black;
+}
+
+.lista-controle th, .lista-controle td {
+    border: 0.1rem gray solid;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.btn{
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    width: 5rem;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.btn:hover{
+    background-color: rgba(230, 22, 22, 0.951);
+    color: white;
+}
+
+.pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background-color: gray;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: darkgray;
+}
+
+footer{
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    align-items: center;    
+    gap: 1rem;
+}
+
+footer img{
+    width: 4rem;
+}

@@ -22,6 +22,20 @@ class userController{
         }
     }
 
+    public function PegarUsuariosPorPagina($indiceInicial, $usuariosLimite){
+        try {
+            $sql = "SELECT * FROM usuarios LIMIT :indiceInicial, :usuariosLimite";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":indiceInicial", $indiceInicial, PDO::PARAM_INT);
+            $db->bindParam(":usuariosLimite", $usuariosLimite, PDO::PARAM_INT);
+            $db->execute();
+            $user = $db->fetchAll(PDO::FETCH_ASSOC);
+            return $user;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+    }
+
     public function CriarUsuario($nome,$email,$senha,$telefone){
         try {
             $sql = "INSERT INTO usuarios(nome,email,senha,telefone) VALUES(:nome,:email,:senha,:telefone)";

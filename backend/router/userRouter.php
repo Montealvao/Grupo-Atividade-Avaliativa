@@ -50,11 +50,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             break;
         
         case "delete":
-            $resultado = $userController->ApagarUsuario($_POST["id"]);
-            if($resultado){
-                header("location: ../../pages/home/index.php");
-            }else{
-                header("location: ../../pages/home/index.php?error=true");
+            if (!empty($_POST['id'])){
+                $resultado = $userController->ApagarUsuario($_POST["id"]);
+                if($resultado){
+                    header("location: ../../src/pages/lista-usuarios/index.php");
+                }else{
+                    header("location: ../../src/pages/lista-usuarios/index.php?error=true");
+                }
+            } else {
+                header("location: ../../src/pages/lista-usuarios/index.php?error=true");
             }
             break;
 
