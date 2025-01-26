@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 $resultado = $userController->CriarUsuario($_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]);
                 if($resultado){
                     session_start();
-                    $_SESSION['id'] = $resultado['id']; // Supondo que CriarUsuario retorna o ID do usuário criado
+                    $_SESSION['id'] = $resultado['id'];
                     header("location: ../../src/pages/home/index.php");
                 }else{
                     header("location: ../../src/pages/cadastro/index.php?error=true");

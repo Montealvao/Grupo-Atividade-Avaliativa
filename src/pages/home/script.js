@@ -14,7 +14,7 @@ function MostrarImagens() {
     if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = 'block';
     dots[slideIndex - 1].className += ' active';
-    setTimeout(MostrarImagens, 3000); // Muda a imagem a cada 3 segundos
+    setTimeout(MostrarImagens, 3000);
 }
 
 function currentSlide(n) {
