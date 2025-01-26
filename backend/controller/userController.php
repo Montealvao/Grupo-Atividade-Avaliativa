@@ -73,11 +73,11 @@ class userController{
 
     public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){ ##colocar $foto_perfil = null
         try {
-            $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, telefone = :telefone";
+            $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
             // if ($foto_perfil){
             //     $sql .= ", foto_perfil = :foto_perfil";
             // }
-            $sql .= "WHERE id = :id";
+            // $sql .= "WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":email",$email);

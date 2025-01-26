@@ -24,9 +24,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         case "editar":
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
                 // $foto_perfil = null;
-                // if (!empty($_FILES['foto_perfil']['name'])){
+                // if (!empty($_FILES['foto_perfil']['fotoPerfil'])){
                 //     $dir = __DIR__ . "/../../public/uploads/";
-                //     $file = $dir . basename($_FILES["foto_perfil"]["name"]);
+                //     $file = $dir . basename($_FILES["foto_perfil"]["fotoPerfil"]);
                 //     if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file)){
                 //         $foto_perfil = $file;
                 //     } else {

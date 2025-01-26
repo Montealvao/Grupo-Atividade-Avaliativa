@@ -33,12 +33,13 @@
    
     <!-- <div class="perfil-container">
         <div class="perfil-imagem">
-            <!-- <img src="<?php echo $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil"> -->
+            <img src="<?php echo $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
             <div class="menu-opcoes" id="menuOpcoes">
                 <button onclick="escolherFoto()">Escolher nova foto</button>
                 <button onclick="removerFoto()">Remover foto</button>
             </div>
-        </div> -->
+        </div>
+    </div> -->
 
     <form action="../../../backend/router/userRouter.php?acao=editar" method="POST" enctype="multipart/form-data" id="formPerfil">
         <div class="botoes-editar">
