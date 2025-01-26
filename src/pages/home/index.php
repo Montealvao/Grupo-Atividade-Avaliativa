@@ -3,6 +3,8 @@
 session_start();
 $logado = isset($_SESSION['id']);
 
+
+
 ?>
 
 <!DOCTYPE html>

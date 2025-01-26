@@ -199,6 +199,22 @@ class userController{
                 //throw $th;
             }
         
+    }
+
+    public function cadastrarEspaco($nome,$capacidade,$descricao){
+        try{
+            $sql = "INSERT INTO espacos VALUES (default,:nome,:capacidade,:descricao)";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":nome", $nome);
+            $db->bindParam(":capacidade", $capacidade);
+            $db->bindParam(":descricao", $descricao);
+            $db->execute();
+            echo "Espaço adicionado";
+            }
+            catch (\Throwable $th) {
+                //throw $th;
+            }
+
 
 
     }

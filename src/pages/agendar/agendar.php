@@ -35,6 +35,14 @@ if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado']))
     $controller->adicionarReserva($id_usuario, $id_espaco ,$data);
 }
 
+// INSERIR ESPAÇO NOVO
+// if (isset($_POST['nome_espaco']) and isset($_POST['capacidade']) and isset($_POST['descricao'])){
+//     $nome_espaco = $_POST['nome_espaco'];
+//     $capacidade = $_POST['capacidade'];
+//     $descricao = $_POST['descricao'];
+//     $controller->cadastrarEspaco($nome_espaco,$capacidade,$descricao);
+//     echo "deu CERTOOOOOO";
+// }
 
 // cancelar reserva por nome
 // <form action="" method="POST">
@@ -152,6 +160,11 @@ if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado']))
     <div id="therock">
         
     </div>
+
+
+
+
+
 </body>
 </html> 
 <!-- <form action="../../../backend/router/loginRouter.php?action=validarsessao" method="POST">
