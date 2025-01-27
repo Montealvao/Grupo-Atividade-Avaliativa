@@ -281,8 +281,30 @@ class userController{
         }
 
 
+    public function deletarEspaco($id_espaco){
+        try{
+            $sql = "DELETE FROM espacos WHERE id = :id_espaco";
+            $stmt = $this->coon->prepare($sql);
+            $stmt->bindParam(":id_espaco", $id_espaco, PDO::PARAM_INT);
+            $stmt->execute();
+    
+            // Verificar se a exclusão foi bem-sucedida
+            if ($stmt->rowCount() > 0) {
+                echo "Espaço com ID $id_espaco deletado com sucesso.";
+                header("location: ../cadastar-espaco/cadastroPagina.php");
+            } else {
+                echo "Erro ao tentar deletar o espaço com ID $id_espaco.";
+            }
+        } catch (PDOException $e) {
+            // Caso ocorra um erro
+            echo "Erro ao deletar espaço: " . $e->getMessage();
+        }
+
+
+        }
 
     }
+
 
 
 

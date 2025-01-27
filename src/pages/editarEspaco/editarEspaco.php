@@ -16,7 +16,10 @@
         $controller->editarEspaco($id_espaco,$nome,$capacidade,$descricao);
     }
 
-
+    if (isset($_POST['id_espaco_excluir'])){
+        $id_espaco_excluir = $_POST['id_espaco_excluir'];
+        $controller->deletarEspaco($id_espaco_excluir);
+    }
 
 ?>
 
@@ -43,10 +46,20 @@
     <div class="editarEspaco">
         Editar espaço:
         <form action="" method="POST">
-            <input type="text" name="id_espaco" id="">
-            <input type="text" name="nome" id="">
-            <input type="text" name="capacidade" id="">
-            <input type="text" name="descricao" id="">
+            <input type="text" placeholder="id:" name="id_espaco" id="">
+            <input type="text" placeholder="nome:" name="nome" id="">
+            <input type="text" placeholder="capacidade:" name="capacidade" id="">
+            <input type="text" placeholder="descrição:" name="descricao" id="">
+            <button type="submit">Enviar</button>
+        </form>
+
+    </div>
+
+
+    <div class="excluirEspaco">
+        Excluir espaço:
+        <form action="" method="POST">
+            <input type="text" placeholder="id:" name="id_espaco_excluir" id="">
             <button type="submit">Enviar</button>
         </form>
 
