@@ -168,7 +168,8 @@ class userController{
                     ":id_espaco"=> $id_espaco,
                     ":data"=>$data,
                 ]);
-                header("location: agendarOK.php");
+                
+
             }
 
             }

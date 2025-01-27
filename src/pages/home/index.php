@@ -61,11 +61,18 @@ $logado = isset($_SESSION['id_usuario']);
         <div class="controle-restaurante">
             <div class="label-restaurante">
                 <h2>McDonalds</h2>
-                <?php if ($logado): ?>
+
+                <form action="../agendar/agendar.php?id_espaco=1" method="POST">
+                    <button type="submit">
+                        Reservar
+                    </button>
+                </form>
+
+                <!-- <?php if ($logado): ?>
                     <button><a href="../agendar/agendar.php">Realizar reserva</a></button>
                 <?php else: ?>
                     <button><a href="../login/login.php">Realizar reserva</a></button>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </div>
             <div class="imagens-restaurante">
                 <img src="../../../public/images/mcDonald1.svg" alt="mc1">
