@@ -36,6 +36,9 @@ if (isset($_POST['nome_espaco']) and isset($_POST['capacidade']) and isset($_POS
         <div class="H-esquerdo">
             <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h2>
             <h2><a style="text-decoration: none;  color:white;" href="../perfil/perfil.php">Perfil</a></h2>
+            
+            <h2><a  style="text-decoration: none; color: white;"  href="../cadastar-espaco/cadastroPagina.php">Cadastrar espaço</a></h2>
+            <h2><a style="text-decoration: none;  color:white;" href="../editarEspaco/editarEspaco.php">Editar</a></h2>
         </div>
     </header>
 

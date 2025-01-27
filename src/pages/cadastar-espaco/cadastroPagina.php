@@ -14,7 +14,7 @@
         $descricao = $_POST['descricao'];
         $controller->cadastrarEspaco($nome_espaco,$capacidade,$descricao);
     }
-
+    $espacos = $controller->listarEspacoCadastrado();
 
 
 
@@ -35,13 +35,14 @@
         <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h2>
             <h2><a style="text-decoration: none;  color:white;" href="../perfil/perfil.php">Perfil</a></h2>
         <h2><a style="text-decoration: none;  color:white;" href="../lista-usuarios/index.php">Lista</a></h2>
+        <h2><a style="text-decoration: none;  color:white;" href="../editarEspaco/editarEspaco.php">Editar</a></h2>
         </div>
         <h2><a style="text-decoration: none; color: white;" href="../perfil/logout.php">Logout</a></h2>  
     </header>    
 
     <div  style="display: flex; justify-content: center; align-items: center; " class="cadastroEspaco">
         <form action="" method="POST">
-            <p><h3>Cadastrar novo nome_espaço</h3></p>
+            <p><h3>Cadastrar novo espaço:</h3></p>
         <p><input type="text" name="nome_espaco" placeholder="Nome:" id=""></p>
             <p><input type="text" name="capacidade" placeholder="Capacidade:" id="">
             </p>
@@ -55,6 +56,44 @@
         </form>
 
     </div>
+
+    <div class="tabela">
+        <table >
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Capacidade</td>
+                    <td>Descrição</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach($espacos as $item){
+                    echo "
+                    <tr>
+                        
+                        <td>{$item['id']}</td>
+                        <td>{$item['nome']}</td>
+                        <td>{$item['capacidade']}</td>
+                        <td>{$item['descricao']}</td>
+                    </tr>";
+                }
+                ?>
+
+            </tbody>
+
+
+
+
+        </table>
+        
+
+
+    </div>
+
+
+
  
 
     <footer>

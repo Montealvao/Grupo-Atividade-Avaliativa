@@ -39,47 +39,13 @@ footer img{
     width: 4rem;
 }
 
-.tabela{
-    padding-top: 2rem;
+.editarEspaco{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    box-sizing: border-box  ;
 }
 
-table{
-    border-collapse: collapse;
-    /* background-color: #fff;   */
-  border-radius: 8px;
-  overflow: hidden;
-
-}
-
-thead {
-    background-color: #4caf50; 
-    color: white;
-    text-align: left;
-    font-size: 16px;
-  }
-  
-th {
-    padding: 12px 15px; 
-    font-weight: bold;
-  }
-  
-tr:nth-child(even) {
-    background-color: #f9f9f9; 
-}
-
-
-
-
-td{
-    padding: 1rem;
-    background-color: #13C296;
-    border: 0.1rem solid white;
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd; 
-    font-size: 14px;
-    color: #333;
+.teste{
+    background-color: red;
 }

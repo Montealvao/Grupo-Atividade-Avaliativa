@@ -236,17 +236,53 @@ class userController{
             catch (\Throwable $th) {
                 //throw $th;
             }
+    }
+
+    public function listarEspacoCadastrado(){
+        try{
+            $sql = "SELECT * FROM espacos";
+            $db = $this->coon->prepare($sql);
+            $db->execute();
+            $espacos = $db->fetchAll(PDO::FETCH_ASSOC);
+            return $espacos;
+        }
+        catch (PDOException $e) {
+            // Caso ocorra um erro
+            echo "Erro ao listar espaços: " . $e->getMessage();
+        }
+
+    }          
+
+
+    public function editarEspaco($id_espaco,$nome,$capacidade,$descricao = null){
+        try{
+            $sql = "UPDATE espacos 
+            SET nome = :nome,
+                capacidade = :capacidade, 
+                descricao = :descricao 
+            WHERE id = :id";
+
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+            $db->bindParam(":nome", $nome, PDO::PARAM_STR);
+            $db->bindParam(":capacidade", $capacidade, PDO::PARAM_STR);
+            $db->bindParam(":descricao", $descricao, PDO::PARAM_STR);
+            $db->execute();
+            if ($db->rowCount() > 0) {
+                echo "Espaço atualizado com sucesso!";
+                header("location: ../cadastar-espaco/cadastroPagina.php");
+            } else {
+                echo "<div class='teste'> Nenhuma alteração foi feita ou o espaço não existe </div>" ;
+            }
+            } catch (PDOException $e) {
+                // Caso ocorra um erro
+                echo "Erro ao editar o espaço: " . $e->getMessage();
+            }
+        }
 
 
 
     }
-
-  
-
-
-
-
-}
 
 
 
