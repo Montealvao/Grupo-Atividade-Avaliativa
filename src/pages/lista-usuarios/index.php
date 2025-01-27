@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (!isset($_SESSION['id']) || $_SESSION['id'] !=1){
+    if (!isset($_SESSION['id_usuario']) || $_SESSION['id_usuario'] !=1){
         header("location: ../home/index.php");
         exit();
     }
@@ -34,9 +34,10 @@
     <header>
         <div class="H-esquerdo">
         <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h2>
-            <h2>Explorar</h2>
-            <h2>Sobre</h2>
+            <h2><a style="text-decoration: none;  color:white;" href="../perfil/perfil.php">Perfil</a></h2>
+            <h2><a  style="text-decoration: none; color: white;"  href="../cadastar-espaco/cadastroPagina.php">Cadastrar espaço</a></h2>
         </div>
+        <h2><a style="text-decoration: none; color: white;" href="../perfil/logout.php">Logout</a></h2>  
     </header>    
     <div class="controle">
         <h1>Lista de usuarios</h1>

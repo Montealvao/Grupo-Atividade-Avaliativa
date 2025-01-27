@@ -201,7 +201,6 @@ class userController{
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome_espaco", $nome_espaco);
             $db->execute();
-            echo "Reserva cancelada";
             }
             catch (\Throwable $th) {
                 //throw $th;
@@ -211,14 +210,29 @@ class userController{
 
     public function cadastrarEspaco($nome,$capacidade,$descricao){
         try{
-            $sql = "INSERT INTO espacos VALUES (default,:nome,:capacidade,:descricao)";
+
+            $sql = "SELECT COUNT(*) FROM espacos WHERE nome = :nome";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome", $nome);
-            $db->bindParam(":capacidade", $capacidade);
-            $db->bindParam(":descricao", $descricao);
             $db->execute();
-            echo "Espaço adicionado";
+            $quantidade = $db->fetchColumn();
+            if ($quantidade>0){
+                echo "Nome igual";
             }
+            else{
+                $sql = "INSERT INTO espacos VALUES (default,:nome,:capacidade,:descricao)";
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":nome", $nome);
+                $db->bindParam(":capacidade", $capacidade);
+                $db->bindParam(":descricao", $descricao);
+                $db->execute();
+                header("location: ./cadastroFeito.php");
+                }
+
+
+            }
+
+
             catch (\Throwable $th) {
                 //throw $th;
             }
