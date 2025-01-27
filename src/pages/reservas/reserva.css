@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body{
+    background-color: black;
+    position: relative;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.H-esquerdo{
+    display: flex;
+    gap: 1rem;
+    margin-left: 1.5rem;
+}
+
+footer{
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    align-items: center;    
+    gap: 1rem;
+}
+
+footer img{
+    width: 4rem;
+}
+
+
+.tabela{
+    padding-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box  ;
+}
+
+table{
+    border-collapse: collapse;
+    /* background-color: #fff;   */
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+thead {
+    background-color: #4caf50; 
+    color: white;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+th {
+    padding: 12px 15px; 
+    font-weight: bold;
+  }
+  
+tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+
+
+
+td{
+    padding: 1rem;
+    background-color: #13C296;
+    border: 0.1rem solid white;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd; /* Linha entre células */
+    font-size: 14px;
+    color: #333;
+}
+
+.removerReserva{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.removerReserva div{
+    padding: 1rem;
+}
+
+.removerReserva input{
+    height: 1.7rem;
+    border-radius: 0.2rem;
+    border: none;
+    color: black;
+    text-decoration: none;
+}
+
+/* Botão estiloso */
+.botaoRemover {
+    background-color: rgb(147, 2, 2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+}

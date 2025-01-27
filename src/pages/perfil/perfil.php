@@ -7,11 +7,14 @@
     include __DIR__ . "/../../../backend/controller/userController.php";
     $userController = new userController();
 
-    $usuario = $userController->PegarUsuarioPorId($_SESSION['id_usario']);
+    $usuario = $userController->PegarUsuarioPorId($_SESSION['id_usuario']);
     if(!$usuario){
         echo "Usuário não encontrado";
         exit();
     }
+
+
+    $id_usuario = $_SESSION['id_usuario'];
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +29,12 @@
     <header>
         <div class="H-esquerdo">
             <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none;">Início</a></h2>
-            <h2>Explorar</h2>
-            <h2>Sobre</h2>
+            <h2> <a href="../reservas/reserva.php"  style="text-decoration: none;" >Reservas  </a></h2>
+            <?php  if ($id_usuario == 1):  ?>
+                <h2> <a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin  </a> </h2>
+            <?php  endif;?>
         </div>
+        <h2><a href="./logout.php">Logout</a></h2>
     </header>
    
     <!-- <div class="perfil-container">

@@ -3,6 +3,8 @@
 session_start();
 $logado = isset($_SESSION['id_usuario']);
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +16,19 @@ $logado = isset($_SESSION['id_usuario']);
     <title>Página inicial</title>
 </head>
 <body>
+
+    
+    <!-- FEITO PELO PEDRO <h1>HOME</h1>
+    <form action="../agendar/agendar.php" method="GET">
+        <p><h3>QUADRA de FUTSal</h3></p>
+        <p>ir página agendar</p>
+        <button type="submit" name="id_espaco" value="1">IR</button>
+    </form>
+    <form action="../agendar/agendar.php?id_espaco=2" method="GET">
+        <p><h3>SAlaãozinho de festa</h3></p>
+        <p>ir página agendar</p>
+        <button type="submit" name="id_espaco" value="2">IR</button>
+    </form> -->
     <header>
         <div class="H-esquerdo">
             <h2>Início</h2>
