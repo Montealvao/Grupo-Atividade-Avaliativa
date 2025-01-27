@@ -34,11 +34,6 @@ header{
     border-radius: 0.5rem;
 }
 
-.H-direito a{
-    text-decoration: none;
-    color: black;
-    font-size: medium;
-}
 
 .H-direito .icone-perfil {
     width: 40px;
@@ -90,44 +85,33 @@ header{
     margin-top: 6rem;
     margin-left: 10rem;
     display: flex;
-    flex-direction: column;
     gap: 5rem;
 }
 
 .controle-restaurante{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    background-color: rgb(92, 87, 79);
+    width: 25rem;
+}
+
+.imagem-restaurante{
+    background-color: wheat;
+    height: 15rem;
+    width: 25rem;
+}
+
+.imagem-restaurante img{
+    width: 100%;
+    height: 100%;
 }
 
 .label-restaurante{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    padding: 1.5rem;
 }
 
-.label-restaurante button{
-    margin-right: 5rem;
-    background-color:  #13C296;
-    width: 10rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    font-size: medium;
-    cursor: pointer;
-}
-
-.label-restaurante a{
-    text-decoration: none;
-    color: white;
-}
-
-.imagens-restaurante{
-    display: flex;
-}
-
-.imagens-restaurante img{
-    width: 40rem;
-    height: 20rem;
-}
 
 footer{
     display: flex;

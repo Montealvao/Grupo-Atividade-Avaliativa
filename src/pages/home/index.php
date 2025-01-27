@@ -4,6 +4,11 @@ session_start();
 $logado = isset($_SESSION['id_usuario']);
 
 
+include __DIR__ . "/../../../backend/controller/userController.php";
+$userController = new userController();
+
+
+$espacos = $userController->listarEspacoCadastrado()
 
 ?>
 
@@ -16,19 +21,6 @@ $logado = isset($_SESSION['id_usuario']);
     <title>Página inicial</title>
 </head>
 <body>
-
-    
-    <!-- FEITO PELO PEDRO <h1>HOME</h1>
-    <form action="../agendar/agendar.php" method="GET">
-        <p><h3>QUADRA de FUTSal</h3></p>
-        <p>ir página agendar</p>
-        <button type="submit" name="id_espaco" value="1">IR</button>
-    </form>
-    <form action="../agendar/agendar.php?id_espaco=2" method="GET">
-        <p><h3>SAlaãozinho de festa</h3></p>
-        <p>ir página agendar</p>
-        <button type="submit" name="id_espaco" value="2">IR</button>
-    </form> -->
     <header>
         <div class="H-esquerdo">
             <h2>Início</h2>
@@ -41,8 +33,8 @@ $logado = isset($_SESSION['id_usuario']);
                     <img src="../../../public/icons/perfil.svg" alt="Perfil" class="icone-perfil">
                 </a>
             <?php else: ?>
-                <button><a href="../login/login.php">Entrar</a></button>
-                <button><a href="../cadastro/index.php">Cadastrar-se</a></button>
+                <a href="../login/login.php"><button>Entrar</button></a>
+                <a href="../cadastro/index.php"><button>Cadastrar-se</button></a>
             <?php endif; ?>
         </div>
     </header>
@@ -58,37 +50,21 @@ $logado = isset($_SESSION['id_usuario']);
     </div>
 
     <div class="controle">
-        <div class="controle-restaurante">
-            <div class="label-restaurante">
-                <h2>McDonalds</h2>
-                <?php if ($logado): ?>
-                    <button><a href="../agendar/agendar.php">Realizar reserva</a></button>
-                <?php else: ?>
-                    <button><a href="../login/login.php">Realizar reserva</a></button>
-                <?php endif; ?>
-            </div>
-            <div class="imagens-restaurante">
-                <img src="../../../public/images/mcDonald1.svg" alt="mc1">
-                <img src="../../../public/images/mcDonald2.svg" alt="mc2">
-                <img src="../../../public/images/mcDonald3.svg" alt="mc3">
-            </div>
-        </div>
-        
-        <div class="controle-restaurante">
-            <div class="label-restaurante">
-                <h2>BurguerKing</h2>
-                <?php if ($logado): ?>
-                    <button><a href="../agendar/agendar.php">Realizar reserva</a></button>
-                <?php else: ?>
-                    <button><a href="../login/login.php">Realizar reserva</a></button>
-                <?php endif; ?>
-            </div>
-            <div class="imagens-restaurante">
-                <img src="../../../public/images/burguerKing1.svg" alt="bk1">
-                <img src="../../../public/images/burguerKing2.svg" alt="bk2">
-                <img src="../../../public/images/burguerKing3.svg" alt="bk3">
-            </div>
-        </div>
+    <?php   
+    foreach ($espacos as $itens){
+        echo "<div class='controle-restaurante'>
+                <div class='imagem-restaurante'>
+                    <img src='https://s2-techtudo.glbimg.com/L9wb1xt7tjjL-Ocvos-Ju0tVmfc=/0x0:1200x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/q/l/TIdfl2SA6J16XZAy56Mw/canvaai.png' alt='reserva'>
+                </div>
+                <div class='label-restaurante'>
+                    <label>Nome:{$itens['nome']}</label>
+                    <label>Capacidade: {$itens['capacidade']}</label>
+                    <label>Descrição: {$itens['descricao']}</label>'1                                    
+                </div>
+                <input type='hidden' value='{$itens['id']}'>
+            </div>";
+            }
+        ?>
     </div>
 
     <footer>

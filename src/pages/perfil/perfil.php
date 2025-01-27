@@ -37,7 +37,7 @@
         <h2><a href="./logout.php">Logout</a></h2>
     </header>
    
-    <!-- <div class="perfil-container">
+    <div class="perfil-container">
         <div class="perfil-imagem">
             <img src="<?php echo $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
             <div class="menu-opcoes" id="menuOpcoes">
@@ -45,12 +45,15 @@
                 <button onclick="removerFoto()">Remover foto</button>
             </div>
         </div>
-    </div> -->
+    </div>
+    <form action="../../../backend/router/userRouter.php?acao=editar_foto" method="POST" id="imagePerfil">
+        <input type="file" name="foto_perfil" id="inputFotoPerfil" style="display: none;" onchange="document.getElementById('imagePerfil').submit();">
+    </form>
 
-    <form action="../../../backend/router/userRouter.php?acao=editar" method="POST" enctype="multipart/form-data" id="formPerfil">
+
+    <form action="../../../backend/router/userRouter.php?acao=editar" method="POST">
         <div class="botoes-editar">
             <input type="hidden" name="id" value="<?php echo $usuario['id'] ?>">
-            <!-- <input type="file" name="foto_perfil" id="inputFotoPerfil" style="display: none;" onchange="document.getElementById('formPerfil').submit();"> -->
             <div>
                 <label style="display: block;">Nome:</label>
                 <input type="text" name="nome" value="<?php echo $usuario['nome'] ?>" class="btn">
@@ -76,6 +79,6 @@
         <img src="../../../public/icons/logo.svg" alt="">
     </footer>
 
-    <!-- <script src="./perfil.js"></script> -->
+    <script src="./perfil.js"></script>
 </body>
 </html>
