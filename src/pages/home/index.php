@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$logado = isset($_SESSION['id']);
+$logado = isset($_SESSION['id_usario']);
 
 ?>
 

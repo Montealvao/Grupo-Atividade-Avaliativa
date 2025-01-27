@@ -154,9 +154,15 @@ footer img{
         font-size: 10pt;
     }
 
+    .carrosel{
+        margin: 0 auto;
+    }
+
     .imagens img{
         width: 50%;
         height: 10rem;
+        margin: 0 auto;
+
     }
 
     .controle{
@@ -180,6 +186,6 @@ footer img{
 
 }
 
-@media (max-width: 425px){
+/* @media (max-width: 425px){
 
-}
+}  */

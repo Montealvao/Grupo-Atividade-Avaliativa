@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (!isset($_SESSION['id']) || $_SESSION['id'] !=1){
+    if (!isset($_SESSION['id_usario']) || $_SESSION['id_usario'] !=1){
         header("location: ../home/index.php");
         exit();
     }
