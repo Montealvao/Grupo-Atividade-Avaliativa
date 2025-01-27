@@ -1,13 +1,13 @@
 <?php 
     session_start();
-    if (!isset($_SESSION['id'])){
+    if (!isset($_SESSION['id_usuario'])){
         header("location: ../home/index.php");
     }
 
     include __DIR__ . "/../../../backend/controller/userController.php";
     $userController = new userController();
 
-    $usuario = $userController->PegarUsuarioPorId($_SESSION['id']);
+    $usuario = $userController->PegarUsuarioPorId($_SESSION['id_usario']);
     if(!$usuario){
         echo "Usuário não encontrado";
         exit();
