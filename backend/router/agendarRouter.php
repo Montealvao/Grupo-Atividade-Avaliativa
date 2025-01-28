@@ -13,15 +13,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         case '1':
             if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado'])) {
 
-                $dataAmanha = date('Y-m-d ', strtotime('+1 day'));
+              
+                $dia = $_POST['dia_semana'];
+                $dia = date('Y-m-d', strtotime('next '.$dia));
                 $data = $_POST['horarioSelecionado'];
                 $data = strval($data);
-
-                $data = $dataAmanha . $data;
+                $data = $dia . " " . $data;
                 $id_usuario = $_SESSION['id_usuario'];
                 $id_espaco = $_GET['id_espaco'];
-                $controller->adicionarReserva($id_usuario, $id_espaco ,$data);
-                header("location: ../../src/pages/agendar/agendar.php?sucesso");
+                $adicionar =$controller->adicionarReserva($id_usuario, $id_espaco ,$data);
+                if ($adicionar == 1){
+                        header("location: ../../src/pages/agendar/agendar.php?falha");
+                }
+                else{
+                    header("location: ../../src/pages/agendar/agendar.php?sucesso");
+                }
             }
             break;
 

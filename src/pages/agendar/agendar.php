@@ -23,6 +23,10 @@ $id_usuario = $_SESSION['id_usuario'];
 if(isset($_GET["sucesso"])) {
     echo "<script>alert('Reserva feito com sucesso caralho')</script>";
 }
+else if (isset($_GET["falha"])){
+    echo "<script>alert('Espaço já com reserva')</script>";
+
+}
 
 
 ?>
@@ -56,9 +60,75 @@ if(isset($_GET["sucesso"])) {
             <?php endif; ?>
         </div>
     </header>
+  
+    <main>
+        <h2>$nome</h2>
+        <div class="imagem">
+            <img src="../../../public/images/mcDonald2.svg" alt="carregou não">
+        </div>
+
+        <div class="descricao">
+            $descricao
+        </div>
+    </main>
+
+
+    <div class="horarios">
+        <div class="segunda">
+            <h2>Segunda</h2>
+                
+                <div><?php  $dia = date('d/m', strtotime('next Monday')); echo $dia;?></div>
+                <button class="time">11:00</button>
+                <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
+                <input  type="hidden" name="dia_semana" value="Monday">
+                    <button name="horarioSelecionado" value="11:00:00">Reservar</button>
+                </form>
+        </div>
+        <div class="segunda">
+            <h2>TERÇA</h2>
+                
+                <div><?php  $dia = date('d/m', strtotime('next Tuesday')); echo $dia;?></div>
+                <button class="time">11:00</button>
+                <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
+                <input  type="hidden" name="dia_semana" value="Tuesday">
+                    <button name="horarioSelecionado" value="11:00:00">Reservar</button>
+                </form>
+        </div>
+        <div class="segunda">
+            <h2>QUARTA</h2>
+                
+                <div><?php  $dia = date('d/m', strtotime('next Wednesday')); echo $dia;?></div>
+                <button class="time">11:00</button>
+                <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
+                <input  type="hidden" name="dia_semana" value="Wednesday">
+                    <button name="horarioSelecionado" value="11:00:00">Reservar</button>
+                </form>
+        </div>
+        <div class="segunda">
+            <h2>QUINTA</h2>
+                
+                <div><?php  $dia = date('d/m', strtotime('next Thursday')); echo $dia;?></div>
+                <button class="time">11:00</button>
+                <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
+                    <input  type="hidden" name="dia_semana" value="Thursday">
+                    <button name="horarioSelecionado" value="11:00:00">Reservar</button>
+                </form>
+        </div>
+        <div class="segunda">
+            <h2>SEXTA</h2>
+                
+                <div><?php  $dia = date('d/m', strtotime('next Friday')); echo $dia;?></div>
+                <button class="time">11:00</button>
+                <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
+                <input  type="hidden" name="dia_semana" value="Friday">
+                    <button name="horarioSelecionado" value="11:00:00">Reservar</button>
+                </form>
+        </div>
+        
+        
+    </div>
     
-    
-    <h1>AGENDAR PAGINA</h1>
+    <!-- <h1>AGENDAR PAGINA</h1>
 
     <form action="../../../backend/router/agendarRouter.php?id_espaco=1" method="POST">
         <select name="horarioSelecionado" id="">
@@ -69,7 +139,7 @@ if(isset($_GET["sucesso"])) {
         
         <button>AGENDAR</button>
 
-    </form>
+    </form> -->
 
 
     

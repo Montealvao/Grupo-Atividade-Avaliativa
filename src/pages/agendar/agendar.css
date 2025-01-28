@@ -6,6 +6,8 @@
 body{
     background-color: black;
     color: white;
+    height: 100vh;
+    padding-bottom: 1.5rem;
 }
 
 header{
@@ -13,7 +15,7 @@ header{
     justify-content: space-between;
     align-items: center ;
     padding: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .H-esquerdo{
@@ -45,4 +47,93 @@ header{
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.imagem img{
+    height: 35rem;
+    width: 56rem;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+main h2{
+    display: flex;
+    text-align: left;
+}
+
+.descricao{
+    background-color: #BD996C;
+    height: 8em;
+    width: 56rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    padding: 0.1rem;
+    margin-bottom: 2rem;
+
+
+}
+
+.horarios{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.segunda{
+    background-color: #18111B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.8rem;
+    gap: 4rem;
+    width: 15rem;
+    height: 30rem;
+    padding: 0.080rem;
+}
+
+.segunda div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 2rem;
+    background-color: #BD996C;
+    border-radius: 0.8rem;
+    border: none;
+
+}
+
+.time{
+    background-color: #982F2F;
+    border: none;
+    border-radius: 0.8rem;
+    width: 8rem;
+    height: 3rem;
+    color: white;
+    font-size: larger;
+
+
+}
+
+.segunda form button{
+    background-color:#BD996C ;
+    height: 3rem;
+    width: 8rem;
+    border: none;
+    border-radius: 0.8rem;
+    
+}
+
+.segunda form button:hover{
+    cursor: pointer;
+    background-color: #786145;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
 }
