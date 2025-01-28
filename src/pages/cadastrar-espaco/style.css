@@ -1,13 +1,13 @@
 *{
-    margin: 0;
     padding: 0;
-    color: white;
+    margin: 0;
 }
 
 body{
     background-color: black;
-    position: relative;
+    color: white;
     height: 100vh;
+    position: relative;
 }
 
 header{
@@ -24,6 +24,7 @@ header{
     margin-left: 1.5rem;
 }
 
+
 footer{
     position: absolute;
     display: flex;
@@ -37,7 +38,6 @@ footer{
 footer img{
     width: 4rem;
 }
-
 
 .tabela{
     display: flex;
@@ -87,49 +87,26 @@ td{
     text-align: center;
 }
 
-.removerReserva{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.removerReserva div{
-    padding: 1rem;
-}
-
-.removerReserva input{
-    height: 1.7rem;
-    border-radius: 0.2rem;
-    border: none;
-    color: black;
-    text-decoration: none;
-}
-
-/* Botão estiloso */
-.botaoRemover {
-    background-color: rgb(147, 2, 2);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 10px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: all 0.3s ease;
-}
-
-
-
 .btn{
-    color:black ;
-    height: 2.5rem;
+    padding-left: 0.5rem;
+    border: 0.1rem #9CA3AF solid;
     border-radius: 0.5rem;
-    width: 5rem;
-    cursor: pointer;
+    width: 20.5rem;
+    height: 2.5rem;
     font-size: medium;
+    color: black;
 }
 
-.btn:hover{
-    background-color: rgba(230, 22, 22, 0.951);
-    color: white;
+.btn button{
+    background-color: #13C296;
+
 }
+
+.btn:nth-child(6){
+    background-color: #13C296;
+    width: 21.2rem;
+    height: 2.5rem;
+    color: white;
+    cursor: pointer;
+}
+
