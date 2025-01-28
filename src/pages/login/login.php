@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./login.css">
 </head>
-<body>
 <div class="campo-cadastro">
         <img src="../../../public/images/imagem-cadastro.svg" alt="imagem cadastro">
         <div class="form-container">

@@ -149,21 +149,25 @@ class userController{
         try{
             // verificar se já existe uma reserva
 
-            //$sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
+
+            // $sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
             $sql = "SELECT COUNT(*) 
                 FROM reservas 
                 INNER JOIN espacos ON espacos.id = reservas.id_espaco 
-                WHERE reservas.id_espaco = :id_espaco";
+                WHERE reservas.id_espaco = :id_espaco and reservas.data = :data";
             $db = $this->coon->prepare($sql);
-            //$db->bindParam(":id_espaco",$id_espaco);
-            //$db->bindParam(":data",$data);
+            // $db->bindParam(":id_espaco",$id_espaco);
+            // $db->bindParam(":data",$data);
             $db->execute([
-                ":id_espaco" => $id_espaco, 
+                ":id_espaco" => $id_espaco,
+                ":data"=> $data,
             ]);
             $reservaExistente = $db->fetchColumn();
 
             if ($reservaExistente>0){   
                 echo "Espaço já reservado";  
+                return 1;
+
             }
 
 
@@ -179,7 +183,11 @@ class userController{
                     ":id_espaco"=> $id_espaco,
                     ":data"=>$data,
                 ]);
+
+                return 0;
+                
                 header("location: agendarOK.php");
+
             }
 
             }
@@ -192,7 +200,8 @@ class userController{
     public function verTodasAsReservasPorId($id_usuario){
         try {
             $sql = " SELECT reservas.data, espacos.nome FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
- WHERE reservas.id_usuario = :id_usuario";
+
+ WHERE reservas.id_usuario = :id_usuario ORDER BY reservas.data ASC";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id_usuario", $id_usuario);
             $db->execute();

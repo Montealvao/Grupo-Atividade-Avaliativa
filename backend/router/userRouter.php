@@ -6,7 +6,7 @@ $userController = new userController();
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_GET["acao"]) {
-        case 'cadastrar':
+        case 'cadastrar':   
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
                 $resultado = $userController->CriarUsuario($_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]);
                 if($resultado){
