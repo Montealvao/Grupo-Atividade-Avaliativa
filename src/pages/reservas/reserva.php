@@ -50,27 +50,24 @@ if (isset($_POST['nome_espaco'])){
 
 
 <div class="removerReserva">
-    <h3>Digite o nome para cancelar reserva</h3>
-    <div>
+    <!-- <h3>Digite o nome para cancelar reserva</h3> -->
+    <!-- <div>
 
         <form action="../../../backend/router/reservaRouter.php?action=removerReserva" method="POST">
             <input type="text" name="nome_espaco" id="" placeholder="Nome:">
             <button class="botaoRemover" type="submit">Remover</button> 
-
-        <form action="" method="POST">
-            <input type="text" name="nome_espaco" id="" placeholder="Nome:">
-            <button class="botaoRemover" type="submit">Remover</button>
-        </form>
-    </div>
+    </div> -->
 
 
 </div>
     <div class="tabela">
+        <h3>Reservas</h3>
         <table >
             <thead>
                 <tr>
                     <td>Nome</td>
                     <td>Horário</td>
+                    <td>Acão</td>
                 </tr>
             </thead>
 
@@ -82,6 +79,10 @@ if (isset($_POST['nome_espaco'])){
                     <tr>
                         <td> <?php  echo $item["nome"]  ?>   </td>
                         <td> <?php  echo $item["data"]  ?>   </td>
+                        <td> <?php  echo"<form action='../../../backend/router/reservaRouter.php?action=removerReserva' method='POST'>
+                                        <input type='hidden' name='nome_espaco' value='{$item['nome']}'>
+                                        <button type='submit' name='delete' class='btn'>Cancelar</button>
+                                    </form>                   "?>  </td>
                     </tr>
                 <?php } ?>
             </tbody>       
