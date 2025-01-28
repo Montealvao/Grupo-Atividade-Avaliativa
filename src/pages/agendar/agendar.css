@@ -87,7 +87,7 @@ main h2{
 
 .descricao{
     background-color: #BD996C;
-    height: 8em;
+    height: 6rem;
     width: 56rem;
     border-radius: 0.8rem;
     overflow: hidden;
@@ -95,6 +95,11 @@ main h2{
     margin-bottom: 2rem;
 
 
+}
+
+.descricao p{
+    margin-top: 3.8rem;
+    
 }
 
 .horarios{
@@ -153,8 +158,76 @@ main h2{
     background-color: #786145;
     transition: background-color 0.3s ease, transform 0.3s ease; 
 
-    margin-top: 12.81rem;
-    margin: 0px;
-    margin-top: 11.06rem;
+}
+
+
+@media (max-width: 768px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .imagem img{
+        height: 90%;
+        width: 90%;
+    }
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
 
 }
+
+
+@media (max-width: 425px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagem img{
+        height: 80%;
+        width: 80%;
+       
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
+
+
+}
+}
+
+

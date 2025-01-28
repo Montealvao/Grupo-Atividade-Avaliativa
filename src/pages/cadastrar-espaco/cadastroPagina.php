@@ -8,14 +8,19 @@
     include __DIR__ . "/../../../backend/controller/userController.php";
     $controller = new userController();
     
-    if (isset($_POST['nome_espaco']) and isset($_POST['capacidade']) and isset($_POST['descricao'])){
-        $nome_espaco = $_POST['nome_espaco'];
-        $capacidade = $_POST['capacidade'];
-        $descricao = $_POST['descricao'];
-        $controller->cadastrarEspaco($nome_espaco,$capacidade,$descricao);
-    }
+   
     $espacos = $controller->listarEspacoCadastrado();
 
+
+if (isset($_GET['erroNomeIgual'])){
+    echo "<script>alert('Erro nome igual a outro espaço')</script>";
+}
+else if (isset($_GET['deuCerto'])){
+    echo "<script>alert('Espaço cadastrado')</script>";
+}
+else if (isset($_GET['erroNomeVazio'])){
+    echo "<script>alert('Erro nome vazio')</script>";
+}
 
 
 ?>
@@ -41,18 +46,13 @@
     </header>    
 
     <div  style="display: flex; justify-content: center; align-items: center; " class="cadastroEspaco">
-        <form action="" method="POST">
-            <p><h3>Cadastrar novo espaço:</h3></p>
-        <p><input type="text" name="nome_espaco" placeholder="Nome:" id=""></p>
-            <p><input type="text" name="capacidade" placeholder="Capacidade:" id="">
-            </p>
-            <p>
-                <input type="text" name="descricao" placeholder="Descrição:" id="">
-            </p>
-            <p>
-                <button type="submit">Enviar</button>
 
-            </p>
+        <form action="../../../backend/router/reservaRouter.php?action=cadastrarEspaco" method="POST">
+            <p><h3>Cadastrar novo espaço:</h3></p>
+            <p><input class="btn" type="text" name="nome_espaco" placeholder="Nome:" id=""></p>
+            <p><input class="btn" type="text" name="capacidade" placeholder="Capacidade:" id=""></p>
+            <p><input  class="btn"type="text" name="descricao" placeholder="Descrição:" id=""></p>
+            <p><button class="btn" type="submit">Enviar</button></p>
         </form>
 
     </div>
@@ -70,6 +70,7 @@
 
             <tbody>
                 <?php foreach($espacos as $item){
+                
                     echo "
                     <tr>
                         

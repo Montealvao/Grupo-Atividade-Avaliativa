@@ -127,16 +127,26 @@ class userController{
         }
     } 
 
-    public function getRoomById($id){
+    public function getRoomById($id,$tipo){
         try {
             $sql = "SELECT * FROM espacos WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id",$id);
             $db->execute();
             $id_room = $db->fetch(PDO::FETCH_ASSOC);
-            if($id_room){
+            if($id_room and $tipo == "nome"){
+                echo $id_room['nome'];
                 return $id_room;
-            }else{
+            }
+            if($id_room and $tipo == "descricao"){
+                echo $id_room['descricao'];
+                return $id_room;
+            }
+            if($id_room and $tipo == "capacidade"){
+                echo $id_room['capacidade'];
+                return $id_room;
+            }
+            else{
                 return false;
             }
         } catch (\Throwable $th) {
@@ -147,47 +157,30 @@ class userController{
     
     public function adicionarReserva($id_usuario,$id_espaco,$data){
         try{
-            // verificar se já existe uma reserva
-
-
-            // $sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
             $sql = "SELECT COUNT(*) 
                 FROM reservas 
                 INNER JOIN espacos ON espacos.id = reservas.id_espaco 
                 WHERE reservas.id_espaco = :id_espaco and reservas.data = :data";
             $db = $this->coon->prepare($sql);
-            // $db->bindParam(":id_espaco",$id_espaco);
-            // $db->bindParam(":data",$data);
             $db->execute([
                 ":id_espaco" => $id_espaco,
                 ":data"=> $data,
             ]);
             $reservaExistente = $db->fetchColumn();
-
             if ($reservaExistente>0){   
                 echo "Espaço já reservado";  
                 return 1;
-
             }
-
-
             else{
-                //ISERT NA TABELA RESERVA
+
                 $sql = "INSERT INTO reservas  VALUES (default,:id_usuario, :id_espaco, :data)";
                 $db = $this->coon->prepare($sql);
-                //$db->bindParam(":id_usuario", $id_usuario);
-                //$db->bindParam(":id_room", $id_room);
-                //$db->bindParam(":data", $data);
                 $db->execute([
                     ":id_usuario"=> $id_usuario,
                     ":id_espaco"=> $id_espaco,
                     ":data"=>$data,
                 ]);
-
                 return 0;
-                
-                header("location: agendarOK.php");
-
             }
 
             }
@@ -199,8 +192,7 @@ class userController{
 
     public function verTodasAsReservasPorId($id_usuario){
         try {
-            $sql = " SELECT reservas.data, espacos.nome FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
-
+            $sql = " SELECT reservas.data, espacos.nome, reservas.id FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
  WHERE reservas.id_usuario = :id_usuario ORDER BY reservas.data ASC";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id_usuario", $id_usuario);
@@ -214,18 +206,16 @@ class userController{
     }
     
     
-    public function cancelarReserva($nome_espaco){
+    public function cancelarReserva($id){
         try{
-            $sql = "DELETE reservas FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
-            WHERE espacos.nome = :nome_espaco";
+            $sql = "DELETE FROM reservas WHERE id = :id";
             $db = $this->coon->prepare($sql);
-            $db->bindParam(":nome_espaco", $nome_espaco);
+            $db->bindParam(":id", $id);
             $db->execute();
             }
             catch (\Throwable $th) {
                 //throw $th;
             }
-        
     }
 
     public function cadastrarEspaco($nome,$capacidade,$descricao){
@@ -238,6 +228,7 @@ class userController{
             $quantidade = $db->fetchColumn();
             if ($quantidade>0){
                 echo "Nome igual";
+                return "erro_nome_igual";
             }
             else{
                 $sql = "INSERT INTO espacos VALUES (default,:nome,:capacidade,:descricao)";
@@ -246,7 +237,6 @@ class userController{
                 $db->bindParam(":capacidade", $capacidade);
                 $db->bindParam(":descricao", $descricao);
                 $db->execute();
-                header("location: ./cadastroFeito.php");
                 }
 
 
@@ -290,12 +280,12 @@ class userController{
             $db->execute();
             if ($db->rowCount() > 0) {
                 echo "Espaço atualizado com sucesso!";
-                header("location: ../cadastar-espaco/cadastroPagina.php");
+                return "espacoAtualizado";
             } else {
                 echo "<div class='teste'> Nenhuma alteração foi feita ou o espaço não existe </div>" ;
+                return "erro";
             }
             } catch (PDOException $e) {
-                // Caso ocorra um erro
                 echo "Erro ao editar o espaço: " . $e->getMessage();
             }
         }
@@ -304,19 +294,18 @@ class userController{
     public function deletarEspaco($id_espaco){
         try{
             $sql = "DELETE FROM espacos WHERE id = :id_espaco";
-            $stmt = $this->coon->prepare($sql);
-            $stmt->bindParam(":id_espaco", $id_espaco, PDO::PARAM_INT);
-            $stmt->execute();
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":id_espaco", $id_espaco, PDO::PARAM_INT);
+            $db->execute();
     
-            // Verificar se a exclusão foi bem-sucedida
-            if ($stmt->rowCount() > 0) {
+            if ($db->rowCount() > 0) {
                 echo "Espaço com ID $id_espaco deletado com sucesso.";
-                header("location: ../cadastar-espaco/cadastroPagina.php");
+                return "sucesso";
             } else {
                 echo "Erro ao tentar deletar o espaço com ID $id_espaco.";
+                return "erroComId";
             }
         } catch (PDOException $e) {
-            // Caso ocorra um erro
             echo "Erro ao deletar espaço: " . $e->getMessage();
         }
 
