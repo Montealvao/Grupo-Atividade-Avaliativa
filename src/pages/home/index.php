@@ -59,9 +59,12 @@ $espacos = $userController->listarEspacoCadastrado()
                 <div class='label-restaurante'>
                     <label>Nome:{$itens['nome']}</label>
                     <label>Capacidade: {$itens['capacidade']}</label>
-                    <label>Descrição: {$itens['descricao']}</label>'1                                    
+                    <label>Descrição: {$itens['descricao']}</label>                                    
                 </div>
-                <input type='hidden' value='{$itens['id']}'>
+                <form action='../agendar/agendar.php' method='GET'>
+                    <input type='hidden' name='id_espaco' value='{$itens['id']}'>
+                    <button type='submit'>Reservar</button>
+                </form>
             </div>";
             }
         ?>
