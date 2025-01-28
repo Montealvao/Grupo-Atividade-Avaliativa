@@ -15,72 +15,219 @@ td{
 }
 
 *{
-    margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
+
 body{
-    background-color: rgb(34, 26, 37);
-    height: 3466px;
-    width: 1920px;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    padding-bottom: 1.5rem;
 }
-.container_1{
-    width: 100%;
-    height: 110px;
- 
-    display: flex;
-    align-items: center;
-}
-.opcoes_1{
+
+header{
     display: flex;
     justify-content: space-between;
-    width: 248px;
-    font-size: 20px;
-    margin-left:82px ;
-    color: white;
+    align-items: center ;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }
-.container_1 input{
-    width: 713px;
-    height: 40px;
-    margin-left: 304px;
-    border-radius: 30px;
+
+.H-esquerdo{
+    display: flex;
+    gap: 1rem;
+    margin-left: 1.5rem;
 }
-.Usuario{
-    margin-left: 423px;
-    height: 40px;
+
+.H-direito{
+    display: flex;
+    gap: 1rem;
+    margin-right: 0.5rem;
+}
+
+.H-direito button{
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+}
+
+.H-direito a{
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+}
+
+.H-direito .icone-perfil {
     width: 40px;
-    border-radius: 100%;
-    background-color: blue;
- 
-}
-.Usuario img{
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-   
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-#pesquisa {
-    padding-left: 20px;
+.imagem img{
+    height: 35rem;
+    width: 56rem;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
 }
 
 
-
-#mc {
-    width: 85.18rem;
-    height: 40.37rem;
-}
-
-#imgReserva p {
-    width: 85.18rem;
-    color: white;
-}
-
-#imgReserva {
+main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 12.81rem;
-    margin: 0px;
-    margin-top: 11.06rem;
+    
 }
+
+main h2{
+    display: flex;
+    text-align: left;
+}
+
+.descricao{
+    background-color: #BD996C;
+    height: 6rem;
+    width: 56rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    padding: 0.1rem;
+    margin-bottom: 2rem;
+
+
+}
+
+.descricao p{
+    margin-top: 3.8rem;
+    
+}
+
+.horarios{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.segunda{
+    background-color: #18111B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.8rem;
+    gap: 4rem;
+    width: 15rem;
+    height: 30rem;
+    padding: 0.080rem;
+}
+
+.segunda div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 2rem;
+    background-color: #BD996C;
+    border-radius: 0.8rem;
+    border: none;
+
+}
+
+.time{
+    background-color: #982F2F;
+    border: none;
+    border-radius: 0.8rem;
+    width: 8rem;
+    height: 3rem;
+    color: white;
+    font-size: larger;
+
+
+}
+
+.segunda form button{
+    background-color:#BD996C ;
+    height: 3rem;
+    width: 8rem;
+    border: none;
+    border-radius: 0.8rem;
+    
+}
+
+.segunda form button:hover{
+    cursor: pointer;
+    background-color: #786145;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+
+}
+
+
+@media (max-width: 768px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .imagem img{
+        height: 90%;
+        width: 90%;
+    }
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
+
+}
+
+
+@media (max-width: 425px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagem img{
+        height: 80%;
+        width: 80%;
+       
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
+
+
+}
+}
+
+

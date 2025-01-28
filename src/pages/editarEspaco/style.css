@@ -46,6 +46,7 @@ footer img{
     align-items: center;
 }
 
+
 .teste{
     background-color: red;
 }
@@ -56,4 +57,5 @@ footer img{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
 }

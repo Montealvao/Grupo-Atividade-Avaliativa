@@ -8,18 +8,25 @@
     include __DIR__ . "/../../../backend/controller/userController.php";
     $controller = new userController();
     
-    if (isset($_POST['id_espaco'])  and isset($_POST['nome']) and isset($_POST['capacidade']) and isset($_POST['descricao'])){
-        $id_espaco = $_POST['id_espaco'];
-        $nome = $_POST['nome'];
-        $capacidade = $_POST['capacidade'];
-        $descricao = $_POST['descricao'];
-        $controller->editarEspaco($id_espaco,$nome,$capacidade,$descricao);
+    
+    if (isset($_GET["espacoEditado"])) {
+        echo "<script>alert('Espaço editado com sucesso!')</script>";
+    }
+    
+    else if (isset($_GET["erro"])) {
+        echo "<script>alert('Nenhuma alteração foi feita ou o espaço não existe!')</script>";
+    }
+    
+    else if (isset($_GET["sucesso"])) {
+        echo "<script>alert('Espaço deletado com sucesso!')</script>";
+    }
+    
+    else if (isset($_GET["erroComId"])) {
+        echo "<script>alert('Erro ao tentar deletar o espaço!')</script>";
     }
 
-    if (isset($_POST['id_espaco_excluir'])){
-        $id_espaco_excluir = $_POST['id_espaco_excluir'];
-        $controller->deletarEspaco($id_espaco_excluir);
-    }
+
+  
 
 ?>
 
@@ -38,14 +45,14 @@
         <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h2>
             <h2><a style="text-decoration: none;  color:white;" href="../perfil/perfil.php">Perfil</a></h2>
         <h2><a style="text-decoration: none;  color:white;" href="../lista-usuarios/index.php">Lista</a></h2>
-        <h2><a  style="text-decoration: none; color: white;"  href="../cadastar-espaco/cadastroPagina.php">Cadastrar espaço</a></h2>
+        <h2><a  style="text-decoration: none; color: white;"  href="../cadastrar-espaco/cadastroPagina.php">Cadastrar espaço</a></h2>
         </div>
         <h2><a style="text-decoration: none; color: white;" href="../perfil/logout.php">Logout</a></h2>  
     </header>    
 
     <div class="editarEspaco">
         Editar espaço:
-        <form action="" method="POST">
+        <form action="../../../backend/router/reservaRouter.php?action=editarEspaco" method="POST">
             <input type="text" placeholder="id:" name="id_espaco" id="">
             <input type="text" placeholder="nome:" name="nome" id="">
             <input type="text" placeholder="capacidade:" name="capacidade" id="">
@@ -58,7 +65,7 @@
 
     <div class="excluirEspaco">
         Excluir espaço:
-        <form action="" method="POST">
+        <form action="../../../backend/router/reservaRouter.php?action=excluirEspaco" method="POST">
             <input type="text" placeholder="id:" name="id_espaco_excluir" id="">
             <button type="submit">Enviar</button>
         </form>
