@@ -90,6 +90,7 @@ header{
 
 .controle-restaurante{
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: rgb(92, 87, 79);
     width: 25rem;
@@ -112,6 +113,15 @@ header{
     padding: 1.5rem;
 }
 
+.btn{
+    background-color:  #13C296;
+    width: 12rem;
+    height: 3rem;
+    color: white;
+    cursor: pointer;
+    font-size: 14pt;
+    border-radius: 0.5rem;
+}
 
 footer{
     display: flex;
@@ -126,16 +136,58 @@ footer img{
     width: 4rem;
 }
 
+@media (max-width: 1024px){
+
+    .controle{
+        margin-left: 0;
+        gap: 1rem;
+    }
+
+    .imagens img{
+        height: 22rem;
+    }   
+
+    .controle-restaurante{
+        margin: 0 auto;
+    }
+
+    .btn{
+        font-size: 13pt;
+    }
+
+} 
 
 @media (max-width: 768px){
+
+    .controle{
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .imagens img{
+        height: 20rem;
+    }   
+
+    .controle-restaurante{
+        margin: 0 auto;
+    }
+
+    .btn{
+        width: 11rem;
+        font-size: 12pt;
+    }
+
+} 
+
+@media (max-width: 425px){
     
     header{
         justify-content: flex-start;
-        gap: 12rem;
+        gap: 7rem;
     }
 
     .H-esquerdo h2{
-        font-size: 10pt;
+        font-size: 15pt;
     }
 
     .carrosel{
@@ -143,33 +195,40 @@ footer img{
     }
 
     .imagens img{
-        width: 50%;
-        height: 10rem;
+        width: 90%;
+        height: 15rem;
         margin: 0 auto;
 
     }
 
     .controle{
-        margin-left: 0;
-
-    }
-
-    .imagens-restaurante{
-        flex-wrap: wrap;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1rem;
+        margin-left: 0;
     }
 
-    .imagens-restaurante img{
+    .controle-restaurante{
         width: 20rem;
-        height: 10rem;
-        
+        margin: 0 auto;
+    }
+    
+    .imagem-restaurante{
+        background-color: wheat;
+        height: 12rem;
+        width: 20rem;
+    }
+
+    .btn{
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 11pt;
+    }
+
+    footer img{
+        width: 3rem;
+    }
+
+    footer h3{
+        font-size: 11pt;
     }
 
 }
-
-/* @media (max-width: 425px){
-
-}  */
