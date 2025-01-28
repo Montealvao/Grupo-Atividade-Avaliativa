@@ -72,7 +72,9 @@ $id_usuario = $_SESSION['id_usuario'];
             <img src="../../../public/images/mcDonald2.svg" alt="carregou não">
         </div>
                 <p>sobre:</p>
-        <div class="descricao"><?php $controller->getRoomById($id_espaco,"descricao");?></div>
+        <div class="descricao"><?php $controller->getRoomById($id_espaco,"descricao");?>
+            <p>Capacidade: <?php $controller->getRoomById($id_espaco,"capacidade");?>                          </p>
+        </div>
     </main>
 
 
