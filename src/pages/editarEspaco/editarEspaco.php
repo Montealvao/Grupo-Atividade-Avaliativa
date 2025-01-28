@@ -24,6 +24,9 @@
     else if (isset($_GET["erroComId"])) {
         echo "<script>alert('Erro ao tentar deletar o espaço!')</script>";
     }
+    else if (isset($_GET["erroCapacidade"])) {
+        echo "<script>alert('Insira valor na capacidade!')</script>";
+    }
 
 
   
@@ -55,7 +58,7 @@
         <form action="../../../backend/router/reservaRouter.php?action=editarEspaco" method="POST">
             <input type="text" placeholder="id:" name="id_espaco" id="">
             <input type="text" placeholder="nome:" name="nome" id="">
-            <input type="text" placeholder="capacidade:" name="capacidade" id="">
+            <input type="text" required placeholder="capacidade:" name="capacidade" id="">
             <input type="text" placeholder="descrição:" name="descricao" id="">
             <button type="submit">Enviar</button>
         </form>
