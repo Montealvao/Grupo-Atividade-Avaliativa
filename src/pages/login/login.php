@@ -23,7 +23,7 @@
             <input type="password" placeholder="Senha" name="senha" class="btn">
         </div>
         <button type="submit" class="btn">Logar</button>
-        <p style="color: #8899A8; font-size: large;">Não tem conta? <a href="../login/login.php" style="color: #5685EB; text-decoration: none;">Criar</a></p>
+        <p style="color: #8899A8; font-size: large;">Não tem conta? <a href="../cadastro/index.php" style="color: #5685EB; text-decoration: none;">Criar</a></p>
     </div>  
     </form>
     </div>
