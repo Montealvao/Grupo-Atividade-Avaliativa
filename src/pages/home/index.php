@@ -9,8 +9,15 @@ include __DIR__ . "/../../../backend/controller/userController.php";
 $userController = new userController();
 
 
-$espacos = $userController->listarEspacoCadastrado()
+$espacos = $userController->listarEspacoCadastrado();
 
+if (isset($_GET["sucesso"])) {
+    echo "<script>alert('Reserva feito com sucesso')</script>";
+}
+else if (isset($_GET["falha"])){
+    echo "<script>alert('Espaço já com reserva')</script>";
+
+}
 
 ?>
 

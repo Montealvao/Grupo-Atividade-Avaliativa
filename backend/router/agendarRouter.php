@@ -8,9 +8,12 @@ session_start();
 
 $controller = new userController();
 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $id_espaco = $_GET['id_espaco'];
     switch ($_GET['id_espaco']) {
-        case '1':
+        case $id_espaco:
             if (isset($_POST['horarioSelecionado']) && !empty($_POST['horarioSelecionado'])) {
 
               
@@ -23,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 $id_espaco = $_GET['id_espaco'];
                 $adicionar =$controller->adicionarReserva($id_usuario, $id_espaco ,$data);
                 if ($adicionar == 1){
-                        header("location: ../../src/pages/agendar/agendar.php?falha");
+                        header("location: ../../src/pages/home/index.php?falha");
                 }
                 else{
-                    header("location: ../../src/pages/agendar/agendar.php?sucesso");
+                    header("location: ../../src/pages/home/index.php?sucesso");
                 }
             }
             break;
