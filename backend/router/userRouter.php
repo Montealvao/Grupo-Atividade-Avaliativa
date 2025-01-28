@@ -21,19 +21,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             }
             break;
         
+        case "editar_foto":
+            if(!empty($_POST['foto_pefil'])){
+                if (!empty($_FILES['foto_perfil']['name'])){
+                    $dir = __DIR__ . "/../../public/uploads/";
+                    $file = $dir . basename($_FILES["foto_perfil"]["name"]);
+                    if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file)){
+                        $foto_perfil = $file;
+                    } else {
+                        echo "Erro ao carregar.";
+                        exit();
+                    }
+                    $resultado -> $userController->AtualizarFoto($_POST["id"],$_POST["foto_perfil"]);
+                }
+            }else{
+                echo "nao deu certo";
+            }
+            break;
+
         case "editar":
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
-                // $foto_perfil = null;
-                // if (!empty($_FILES['foto_perfil']['fotoPerfil'])){
-                //     $dir = __DIR__ . "/../../public/uploads/";
-                //     $file = $dir . basename($_FILES["foto_perfil"]["fotoPerfil"]);
-                //     if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file)){
-                //         $foto_perfil = $file;
-                //     } else {
-                //         echo "Erro ao carregar.";
-                //         exit();
-                //     }
-                // }
                 $resultado = $userController->AtualizarUsuario($_POST["id"], $_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]); ##colocar $foto_perfil
                 if($resultado){
                     header("location: ../../src/pages/perfil/perfil.php");

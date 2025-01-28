@@ -71,23 +71,34 @@ class userController{
         } catch (\Throwable $th) {
 
         }
-    }        
+    }    
+    
+    public function AtualizarFoto($id,$foto_perfil){
+        try{   
+            $sql = "UPDATE usuarios SET foto_perfil = :foto_perfil WHERE id = :id";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":foto_perfil", $foto_perfil);
+            $db->bindParam(":id", $id);
+            if($db->execute()){
+                return true;
+            }else{
+                echo "Erro ao executar a atualização";
+                return false;
+            }
+            
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+    }
 
-    public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){ ##colocar $foto_perfil = null
+    public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){
         try {
             $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
-            // if ($foto_perfil){
-            //     $sql .= ", foto_perfil = :foto_perfil";
-            // }
-            // $sql .= "WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":email",$email);
             $db->bindParam(":senha",$senha);
             $db->bindParam(":telefone",$telefone);
-            // if ($foto_perfil){
-            //     $db->bindParam(":foto_perfil", $foto_perfil);
-            // }
             $db->bindParam(":id",$id);
             if($db->execute()){
                 return true;
@@ -138,6 +149,7 @@ class userController{
         try{
             // verificar se já existe uma reserva
 
+
             // $sql = "SELECT COUNT(*) FROM reservas WHERE id_espaco = :id_espaco  AND data = :data";
             $sql = "SELECT COUNT(*) 
                 FROM reservas 
@@ -155,6 +167,7 @@ class userController{
             if ($reservaExistente>0){   
                 echo "Espaço já reservado";  
                 return 1;
+
             }
 
 
@@ -170,8 +183,10 @@ class userController{
                     ":id_espaco"=> $id_espaco,
                     ":data"=>$data,
                 ]);
+
                 return 0;
                 
+                header("location: agendarOK.php");
 
             }
 
@@ -185,6 +200,7 @@ class userController{
     public function verTodasAsReservasPorId($id_usuario){
         try {
             $sql = " SELECT reservas.data, espacos.nome FROM reservas INNER JOIN espacos ON reservas.id_espaco = espacos.id
+
  WHERE reservas.id_usuario = :id_usuario ORDER BY reservas.data ASC";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":id_usuario", $id_usuario);

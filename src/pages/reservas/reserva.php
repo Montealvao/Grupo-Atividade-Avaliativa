@@ -18,6 +18,14 @@ $reservas = $controller->verTodasAsReservasPorId($id_usuario);
 
 
 
+if (isset($_POST['nome_espaco'])){
+        $nome_espaco = $_POST['nome_espaco'];
+        $controller->cancelarReserva($nome_espaco);
+        
+    }
+    
+
+
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +52,14 @@ $reservas = $controller->verTodasAsReservasPorId($id_usuario);
 <div class="removerReserva">
     <h3>Digite o nome para cancelar reserva</h3>
     <div>
+
         <form action="../../../backend/router/reservaRouter.php?action=removerReserva" method="POST">
             <input type="text" name="nome_espaco" id="" placeholder="Nome:">
             <button class="botaoRemover" type="submit">Remover</button> 
+
+        <form action="" method="POST">
+            <input type="text" name="nome_espaco" id="" placeholder="Nome:">
+            <button class="botaoRemover" type="submit">Remover</button>
         </form>
     </div>
 

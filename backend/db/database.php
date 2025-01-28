@@ -5,7 +5,7 @@ class Database
     private $server = "localhost";
     private $dbnome = "sistema_de_reserva";
     private $user = "root";
-    private $password = "";
+    private $password = "LoveMuch@.sql";
     public function connect(){
         try {
             $conn = new PDO(
