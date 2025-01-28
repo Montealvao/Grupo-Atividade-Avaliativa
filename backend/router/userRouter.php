@@ -22,21 +22,33 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             break;
         
         case "editar_foto":
-            if(!empty($_POST['foto_pefil'])){
-                if (!empty($_FILES['foto_perfil']['name'])){
-                    $dir = __DIR__ . "/../../public/uploads/";
-                    $file = $dir . basename($_FILES["foto_perfil"]["name"]);
-                    if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file)){
-                        $foto_perfil = $file;
-                    } else {
-                        echo "Erro ao carregar.";
-                        exit();
-                    }
-                    $resultado -> $userController->AtualizarFoto($_POST["id"],$_POST["foto_perfil"]);
-                }
-            }else{
-                echo "nao deu certo";
+
+            if(!isset($_FILES["foto_perfil"])) {
+                return header("Location: ../../src/pages/perfil/perfil.php?erro=foto");
             }
+
+            if($_FILES["foto_perfil"]["error"] != 0) {
+                return header("Location: ../../src/pages/perfil/perfil.php?erro=upload_foto");
+            }
+
+            $dir = __DIR__ . "/../../public/uploads/";
+            $file_path = $dir . basename($_FILES["foto_perfil"]["name"]);
+            $res_upload = move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $file_path);
+
+            if(!$res_upload) {
+                return header("Location: ../../src/pages/perfil/perfil.php?erro=upload_foto");
+            }
+
+            $file_path_db = explode("htdocs\\", $file_path)[1];
+                    
+            $resultado = $userController->AtualizarFoto($_POST["id"], $file_path_db);
+
+            if(!$resultado) {
+                return header("Location: ../../src/pages/perfil/perfil.php?erro=erro_inesperado");
+            }
+
+            header("Location: ../../src/pages/perfil/perfil.php?sucesso");
+
             break;
 
         case "editar":

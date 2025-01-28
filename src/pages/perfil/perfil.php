@@ -13,6 +13,14 @@
         exit();
     }
 
+    if(isset($_GET["sucesso"])) {
+        echo "
+        <script>
+            alert('Mudanças aplicadas')
+            location.href = './perfil.php'
+        </script>
+        ";
+    }
 
     $id_usuario = $_SESSION['id_usuario'];
 ?>
@@ -29,9 +37,9 @@
     <header>
         <div class="H-esquerdo">
             <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none;">Início</a></h2>
-            <h2> <a href="../reservas/reserva.php"  style="text-decoration: none;" >Reservas  </a></h2>
+            <h2> <a href="../reservas/reserva.php"  style="text-decoration: none;" >Reservas</a></h2>
             <?php  if ($id_usuario == 1):  ?>
-                <h2> <a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin  </a> </h2>
+                <h2> <a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin</a> </h2>
             <?php  endif;?>
         </div>
         <h2><a href="./logout.php">Logout</a></h2>
@@ -39,21 +47,22 @@
    
     <div class="perfil-container">
         <div class="perfil-imagem">
-            <img src="<?php echo $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
+            <img src="<?php echo "/" . $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
             <div class="menu-opcoes" id="menuOpcoes">
                 <button onclick="escolherFoto()">Escolher nova foto</button>
                 <button onclick="removerFoto()">Remover foto</button>
             </div>
         </div>
     </div>
-    <form action="../../../backend/router/userRouter.php?acao=editar_foto" method="POST" id="imagePerfil">
+    <form enctype="multipart/form-data" action="../../../backend/router/userRouter.php?acao=editar_foto" method="POST" id="imagePerfil">
+        <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
         <input type="file" name="foto_perfil" id="inputFotoPerfil" style="display: none;" onchange="document.getElementById('imagePerfil').submit();">
     </form>
 
 
     <form action="../../../backend/router/userRouter.php?acao=editar" method="POST">
         <div class="botoes-editar">
-            <input type="hidden" name="id" value="<?php echo $usuario['id'] ?>">
+            <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
             <div>
                 <label style="display: block;">Nome:</label>
                 <input type="text" name="nome" value="<?php echo $usuario['nome'] ?>" class="btn">
