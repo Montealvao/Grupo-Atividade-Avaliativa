@@ -57,13 +57,13 @@ $espacos = $userController->listarEspacoCadastrado()
                     <img src='https://s2-techtudo.glbimg.com/L9wb1xt7tjjL-Ocvos-Ju0tVmfc=/0x0:1200x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/q/l/TIdfl2SA6J16XZAy56Mw/canvaai.png' alt='reserva'>
                 </div>
                 <div class='label-restaurante'>
-                    <label>Nome:{$itens['nome']}</label>
+                    <label>Nome: {$itens['nome']}</label>
                     <label>Capacidade: {$itens['capacidade']}</label>
                     <label>Descrição: {$itens['descricao']}</label>                                    
                 </div>
                 <form action='../agendar/agendar.php' method='GET'>
                     <input type='hidden' name='id_espaco' value='{$itens['id']}'>
-                    <button type='submit'>Reservar</button>
+                    <button type='submit' class='btn'>Realizar reserva</button>
                 </form>
             </div>";
             }
