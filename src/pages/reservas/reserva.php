@@ -16,16 +16,6 @@ $id_usuario = $_SESSION['id_usuario'];
 
 $reservas = $controller->verTodasAsReservasPorId($id_usuario);
 
-
-
-if (isset($_POST['nome_espaco'])){
-        $nome_espaco = $_POST['nome_espaco'];
-        $controller->cancelarReserva($nome_espaco);
-        
-    }
-    
-
-
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +30,9 @@ if (isset($_POST['nome_espaco'])){
 <header>
         <div class="H-esquerdo">
             <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none;">Início</a></h2>
-            <h2> <a href="../perfil/perfil.php"  style="text-decoration: none;" >Perfil  </a></h2>
+            <h2> <a href="../perfil/perfil.php"  style="text-decoration: none;" >Perfil</a></h2>
             <?php  if ($id_usuario == 1):  ?>
-                <h2> <a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin  </a> </h2>
+                <h2><a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin</a></h2>
             <?php  endif;?>
         </div>
         <h2><a href="../perfil/logout.php">Logout</a></h2>
@@ -50,16 +40,6 @@ if (isset($_POST['nome_espaco'])){
 
 
 <div class="removerReserva">
-    <!-- <h3>Digite o nome para cancelar reserva</h3> -->
-    <!-- <div>
-
-        <form action="../../../backend/router/reservaRouter.php?action=removerReserva" method="POST">
-            <input type="text" name="nome_espaco" id="" placeholder="Nome:">
-            <button class="botaoRemover" type="submit">Remover</button> 
-    </div> -->
-
-
-</div>
     <div class="tabela">
         <h3>Reservas</h3>
         <table >
@@ -70,25 +50,24 @@ if (isset($_POST['nome_espaco'])){
                     <td>Acão</td>
                 </tr>
             </thead>
-
             <tbody>
-                    <?php
-                    $i=0;
+                <?php
                 foreach($reservas as $item){
-                    ?>
-                    <tr>
-                        <td> <?php  echo $item["nome"]  ?>   </td>
-                        <td> <?php  echo $item["data"]  ?>   </td>
-                        <td> <?php  echo"<form action='../../../backend/router/reservaRouter.php?action=removerReserva' method='POST'>
-                                        <input type='hidden' name='nome_espaco' value='{$item['nome']}'>
-                                        <button type='submit' name='delete' class='btn'>Cancelar</button>
-                                    </form>                   "?>  </td>
-                    </tr>
+                ?>
+                <tr>
+                    <td> <?php  echo $item["nome"]  ?>   </td>
+                    <td> <?php  echo $item["data"]  ?>   </td>
+                    <td> <?php  echo"
+                    <form action='../../../backend/router/reservaRouter.php?action=removerReserva' method='POST'>
+                        <input type='hidden' name='id' value='{$item['id']}'>
+                        <button type='submit' name='delete' class='btn'>Cancelar</button>
+                    </form>"?>  </td>
+                </tr>
                 <?php } ?>
             </tbody>       
         </table>
     </div>
-
+</div>
 
     <footer>
         <h3>Equipe BF</h3>

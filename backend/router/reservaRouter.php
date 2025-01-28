@@ -11,13 +11,14 @@ $controller = new userController();
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     switch ($_GET['action']) {
         case 'removerReserva':
-            echo "caiu";
-            if (isset($_POST['nome_espaco'])){
-                $nome_espaco = $_POST['nome_espaco'];
-                $controller->cancelarReserva($nome_espaco);
+            if (isset($_POST['id'])){
+                $reserva = $_POST['id'];
+                $controller->cancelarReserva($reserva);
                 header("location: ../../src/pages/reservas/reserva.php");
-                
+            }else{
+                header("location: ../../src/pages/reservas/reserva.php?erro");
             }
+
         break;
 
         case 'cadastrarEspaco':
