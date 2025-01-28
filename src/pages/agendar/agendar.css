@@ -97,6 +97,11 @@ main h2{
 
 }
 
+.descricao p{
+    margin-top: 3.8rem;
+    
+}
+
 .horarios{
     display: flex;
     justify-content: center;
@@ -153,6 +158,76 @@ main h2{
     background-color: #786145;
     transition: background-color 0.3s ease, transform 0.3s ease; 
 
+}
+
+
+@media (max-width: 768px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .imagem img{
+        height: 90%;
+        width: 90%;
+    }
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
+
+}
+
+
+@media (max-width: 425px){
+
+
+
+    .imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagem img{
+        height: 80%;
+        width: 80%;
+       
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .descricao {
+        width: 80%;
+    }
+
+    .horarios{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .segunda{
+        height: 75%;
+    }
+
+
+}
 }
 
 
