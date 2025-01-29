@@ -18,8 +18,11 @@ if (isset($_GET['erroNomeIgual'])){
 else if (isset($_GET['deuCerto'])){
     echo "<script>alert('Espaço cadastrado')</script>";
 }
-else if (isset($_GET['erroNomeVazio'])){
+else if (isset($_GET['erroSemNome'])){
     echo "<script>alert('Erro nome vazio')</script>";
+}
+else if (isset($_GET['erroCapacidadeNula'])){
+    echo "<script>alert('Erro capacidade não inserida')</script>";
 }
 
 
