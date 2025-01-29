@@ -24,6 +24,9 @@
     else if (isset($_GET["erroComId"])) {
         echo "<script>alert('Erro ao tentar deletar o espaço!')</script>";
     }
+    else if (isset($_GET["erroCapacidade"])) {
+        echo "<script>alert('Insira valor na capacidade!')</script>";
+    }
 
 
   
