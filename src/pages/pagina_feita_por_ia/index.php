@@ -27,22 +27,57 @@ else{
   }
 
 if (isset($_GET["sucesso"])) {
-    echo "<script>alert('Reserva feito com sucesso')</script>";
-}
-else if (isset($_GET["falha"])){
-    echo "<script>alert('Espaço já com reserva')</script>";
+  echo "
+  <script>
+      // Exibe o modal quando a página é carregada
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('success-modal').classList.add('show');
+      });
 
-    
+      // Fecha o modal quando o botão de fechar é clicado
+      document.querySelector('.close').addEventListener('click', function() {
+          document.getElementById('success-modal').classList.remove('show');
+      });
+  </script>";
   
-
-
-
 }
+else if (isset($_GET["erro_reservaExistente"])){
+  echo "
+  <script>
+      // Exibe o modal quando a página é carregada
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('error-modal').classList.add('show');
+      });
+
+      // Fecha o modal quando o botão de fechar é clicado
+      document.querySelector('.close').addEventListener('click', function() {
+          document.getElementById('error-modal').classList.remove('show');
+      });
+  </script>";
+}
+else if (isset($_GET["erro_dataAntiga"])){
+  echo "
+  <script>
+      // Exibe o modal quando a página é carregada
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('error-modal-time').classList.add('show');
+      });
+
+      // Fecha o modal quando o botão de fechar é clicado
+      document.querySelector('.close').addEventListener('click', function() {
+          document.getElementById('error-modal-time').classList.remove('show');
+      });
+  </script>";
+}
+
+
+
+
 include __DIR__ . "/../../../backend/controller/reservaController.php";
 
 $reservaController = new reservaController();
 
-
+// $reservaController->fazerReserva(28,1,1,"2025-01-29","18:00:00");
 
 ?>
 
@@ -77,24 +112,33 @@ $reservaController = new reservaController();
 </header>
 
   <!-- Modal de Reserva Confirmada -->
-  <!-- <div class="modal" id="success-modal">
+  <div class="modal" id="success-modal">
     <div class="modal-content success">
       <i class="lucide-check-circle modal-icon"></i>
       <h3 class="modal-title">Reserva Confirmada!</h3>
       <p class="modal-text">Sua reserva foi realizada com sucesso. Enviaremos um e-mail com a confirmação dos detalhes.</p>
       <button class="modal-button" onclick="closeModal('success-modal')">Fechar</button>
     </div>
-  </div> -->
+  </div>
 
   <!-- Modal de Reserva Indisponível -->
-  <!-- <div class="modal" id="error-modal">
+  <div class="modal" id="error-modal">
     <div class="modal-content error">
       <i class="lucide-x-circle modal-icon"></i>
       <h3 class="modal-title">Horário Indisponível</h3>
       <p class="modal-text">Desculpe, mas este horário já está totalmente reservado. Por favor, selecione outro horário ou data.</p>
       <button class="modal-button" onclick="closeModal('error-modal')">Escolher Outro Horário</button>
     </div>
-  </div> -->
+  </div>
+
+  <div class="modal" id="error-modal-time">
+    <div class="modal-content error">
+      <i class="lucide-x-circle modal-icon"></i>
+      <h3 class="modal-title">Data Indisponível</h3>
+      <p class="modal-text">Descuple, agendamos apenas datas para o proximo dia, e não no mesmo, selecione outra data.</p>
+      <button class="modal-button" onclick="closeModal('error-modal-time')">Escolher Outro Data</button>
+    </div>
+  </div>
 
   <div class="container">
     <div class="hero">
@@ -109,25 +153,26 @@ $reservaController = new reservaController();
     <div class="main-content">
       <div class="restaurant-description">
         <div class="description-content">
-          <h2 class="description-title">Sobre o La Maison</h2>
+          <h2 class="description-title">Sobre <?php $userController->getRoomById($id_espaco,"nome"); ?></h2>
           <p class="description-text">
-            Bem-vindo ao La Maison, um refúgio gastronômico onde a tradição francesa encontra a inovação contemporânea. Nossa cozinha, liderada pelo renomado Chef Pierre Dubois, combina técnicas clássicas francesas com ingredientes locais sazonais para criar experiências culinárias memoráveis.
-          </p>
+            <!-- Bem-vindo ao La Maison, um refúgio gastronômico onde a tradição francesa encontra a inovação contemporânea. Nossa cozinha, liderada pelo renomado Chef Pierre Dubois, combina técnicas clássicas francesas com ingredientes locais sazonais para criar experiências culinárias memoráveis. -->
+            <?php $userController->getRoomById($id_espaco,"descricao"); ?>
+          <!-- </p>
           <p class="description-text">
-            Em um ambiente acolhedor e sofisticado, oferecemos um cardápio que muda sazonalmente, sempre mantendo nossos pratos signature que conquistaram nossos clientes mais fiéis. Nossa adega conta com uma seleção premium de vinhos franceses e internacionais, cuidadosamente selecionados para harmonizar com nossa gastronomia.
+            Em um ambiente acolhedor e sofisticado, oferecemos um cardápio que muda sazonalmente, sempre mantendo nossos pratos signature que conquistaram nossos clientes mais fiéis. Nossa adega conta com uma seleção premium de vinhos franceses e internacionais, cuidadosamente selecionados para harmonizar com nossa gastronomia. -->
           </p>
           <div class="description-highlights">
             <div class="highlight-item">
               <i class="lucide-star highlight-icon"></i>
-              <span>Estrela Michelin 2023</span>
+              <!-- <span>Estrela Michelin 2023</span> -->
             </div>
             <div class="highlight-item">
               <i class="lucide-utensils highlight-icon"></i>
-              <span>Menu Degustação 7 Tempos</span>
+              <!-- <span>Menu Degustação 7 Tempos</span> -->
             </div>
             <div class="highlight-item">
               <i class="lucide-wine highlight-icon"></i>
-              <span>Carta de Vinhos Premiada</span>
+              <!-- <span>Carta de Vinhos Premiada</span> -->
             </div>
           </div>
         </div>
@@ -207,7 +252,7 @@ $reservaController = new reservaController();
         </form>
       </div>
 
-      <div class="info-grid">
+      <!-- <div class="info-grid">
         <div class="info-card">
           <h3 class="info-title">Horário de Funcionamento</h3>
           <ul class="info-list">
@@ -224,7 +269,7 @@ $reservaController = new reservaController();
             CEP: 01234-567
           </p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

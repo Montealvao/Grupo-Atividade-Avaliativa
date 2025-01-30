@@ -38,15 +38,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     //         break;
 
         case $id_espaco:
-            echo "caiu";
             $id_espaco = $_GET['id_espaco'];
             $id_usuario = $_SESSION['id_usuario'];
             $pessoas = $_POST['pessoas_selecionadas'];
             $data = $_POST['data_selecionada'];
             $horario = $_POST['horario_selecionado'];
             $resultado = $reservaController->fazerReserva($id_espaco,$id_usuario,$pessoas,$data,$horario);
-            break;
-            header("location: ../../src/pages/home/index.php?sucesso");
+            if ($resultado == 2){
+                header("location: ../../src/pages/pagina_feita_por_ia/index.php?id_espaco=$id_espaco&erro_dataAntiga");
+
+            }
+
+            else if ($resultado == 1){
+                header("location: ../../src/pages/pagina_feita_por_ia/index.php?id_espaco=$id_espaco&erro_reservaExistente");
+                // header("location: ../../src/pages/home/index.php?erro_reservaExistente");
+            }
+            else if ($resultado == 0){
+                header("location: ../../src/pages/pagina_feita_por_ia/index.php?id_espaco=$id_espaco&sucesso");
+            }
 
             
         

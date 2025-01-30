@@ -18,59 +18,57 @@ class reservaController{
             $db->bindParam(":id_espaco",$id_espaco);
             $db->execute();
             $capacidade_total = $db->fetchColumn();
-            echo $capacidade_total;
-            echo "<br>";
-            echo $pessoas;
 
             if ($pessoas > $capacidade_total){
                 echo "<br>Capacidade total atingida";
                 return "<br>Capacidade total atingida";
             }
 
-            $data_obj = DateTime::createFromFormat('d-m-Y', $data); //<-- funciona, não mexe!!
-            $data_formatada = $data_obj->format('Y-m-d');           // eu sei oq é? não. ass:Celestiinoo.
-            echo "<br>";
-            echo $data_formatada;
-            echo "<br>";
-            echo $horario;
-            echo "<br>";
-            $data_horario = $data_formatada. " " . $horario;
-            echo $data_horario;
-
-            $sql = "SELECT COUNT(*) FROM reservas 
-            INNER JOIN espacos 
-            ON espacos.id = reservas.id_espaco 
-            WHERE reservas.id_espaco = :id_espaco and reservas.data = :data_horario";
-            $db = $this->coon->prepare($sql);
-            $db->bindParam(":id_espaco",$id_espaco);
-            $db->bindParam(":data_horario",$data_horario);
-            $db->execute();
-            $reservaExistente = $db->fetchColumn();
-
-            if ($reservaExistente>0){   
-                echo "Espaço já reservado";  
-                return 1;
-            }
-
             else{
 
-                $sql = "INSERT INTO reservas  VALUES (default,:id_usuario, :id_espaco, :data_horario)";
-                $db = $this->coon->prepare($sql);
-                $db->execute([
-                    ":id_usuario"=> $id_usuario,
-                    ":id_espaco"=> $id_espaco,
-                    ":data_horario"=>$data_horario,
-                ]);
-                echo "Reserva feita";
-                return 0;
+                $data_hoje = date("Y-m-d");
+                echo "data de hoje: ",$data_hoje;
+                if ($data<=$data_hoje){
+                    echo "data invalida";
+                    return 2;
+                }
+
+                else{
+
+                
+                    $data_horario = $data . " " . $horario;
+                    echo "<br>data selecionada: ",$data;
+                    echo "<br>data selecionada: ",$data_horario;
+        
+                    $sql = "SELECT COUNT(*) FROM reservas 
+                    INNER JOIN espacos 
+                    ON espacos.id = reservas.id_espaco 
+                    WHERE reservas.id_espaco = :id_espaco and reservas.data = :data_horario";
+                    $db = $this->coon->prepare($sql);
+                    $db->bindParam(":id_espaco",$id_espaco);
+                    $db->bindParam(":data_horario",$data_horario);
+                    $db->execute();
+                    $reservaExistente = $db->fetchColumn();
+        
+                    if ($reservaExistente>0){   
+                        echo "Espaço já reservado";  
+                        return 1;
+                    }
+        
+                    else{
+        
+                        $sql = "INSERT INTO reservas  VALUES (default,:id_usuario, :id_espaco, :data_horario)";
+                        $db = $this->coon->prepare($sql);
+                        $db->execute([
+                            ":id_usuario"=> $id_usuario,
+                            ":id_espaco"=> $id_espaco,
+                            ":data_horario"=>$data_horario,
+                        ]);
+                        echo "Reserva feita";
+                        return 0;
+                    }
+                }
             }
-
-            
-
-
-            
-
-
 
         } catch (\Throwable $th) {
             echo $th->getMessage();
