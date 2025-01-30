@@ -47,7 +47,7 @@
    
     <div class="perfil-container">
         <div class="perfil-imagem">
-            <img src="<?php echo "/" . $usuario['foto_perfil'] ?? '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
+            <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
             <div class="menu-opcoes" id="menuOpcoes">
                 <button onclick="escolherFoto()">Escolher nova foto</button>
                 <button onclick="removerFoto()">Remover foto</button>
@@ -56,6 +56,7 @@
     </div>
     <form enctype="multipart/form-data" action="../../../backend/router/userRouter.php?acao=editar_foto" method="POST" id="imagePerfil">
         <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
+        <input type="hidden" name="remover_foto" id="removerFoto" value="0">
         <input type="file" name="foto_perfil" id="inputFotoPerfil" style="display: none;" onchange="document.getElementById('imagePerfil').submit();">
     </form>
 

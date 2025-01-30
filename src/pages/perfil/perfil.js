@@ -8,8 +8,8 @@ function escolherFoto() {
 }
 
 function removerFoto() {
-    document.getElementById('inputFotoPerfil').value = '';
-
+    document.getElementById('removerFoto').value = '1';
+    document.getElementById('imagePerfil').submit();
 }
 
 

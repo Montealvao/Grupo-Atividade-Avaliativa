@@ -22,9 +22,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             break;
         
         case "editar_foto":
-
-            if(!isset($_FILES["foto_perfil"])) {
-                return header("Location: ../../src/pages/perfil/perfil.php?erro=foto");
+            if(isset($_POST['remover_foto']) && $_POST['remover_foto'] == '1'){
+                $file_path_db = null;
+            } else{
+                if(!isset($_FILES["foto_perfil"])) {
+                    return header("Location: ../../src/pages/perfil/perfil.php?erro=foto");
             }
 
             if($_FILES["foto_perfil"]["error"] != 0) {
@@ -38,9 +40,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             if(!$res_upload) {
                 return header("Location: ../../src/pages/perfil/perfil.php?erro=upload_foto");
             }
-
+            
             $file_path_db = explode("htdocs\\", $file_path)[1];
-                    
+            
+        }
             $resultado = $userController->AtualizarFoto($_POST["id"], $file_path_db);
 
             if(!$resultado) {

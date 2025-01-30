@@ -74,6 +74,7 @@ footer img{
 .perfil-imagem {
     position: relative;
     cursor: pointer;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
 }
 
 .perfil-imagem img {
