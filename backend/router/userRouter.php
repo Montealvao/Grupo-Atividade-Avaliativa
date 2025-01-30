@@ -5,6 +5,7 @@ include __DIR__ . "/../controller/userController.php";
 $userController = new userController();
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
+    session_start();
     switch ($_GET["acao"]) {
         case 'cadastrar':   
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
@@ -49,6 +50,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             if(!$resultado) {
                 return header("Location: ../../src/pages/perfil/perfil.php?erro=erro_inesperado");
             }
+
+            $_SESSION['foto_perfil'] = $file_path_db;
 
             header("Location: ../../src/pages/perfil/perfil.php?sucesso");
 

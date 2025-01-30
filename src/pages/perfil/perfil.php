@@ -23,6 +23,7 @@
     }
 
     $id_usuario = $_SESSION['id_usuario'];
+    $foto_perfil = isset($_SESSION['foto_perfil']) ? $_SESSION['foto_perfil'] : '../../../public/icons/perfil.svg';
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
    
     <div class="perfil-container">
         <div class="perfil-imagem">
-            <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : '../../../public/icons/perfil.svg'; ?>" alt="Perfil" id="fotoPerfil">
+        <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : $foto_perfil; ?>" alt="Perfil" id="fotoPerfil">
             <div class="menu-opcoes" id="menuOpcoes">
                 <button onclick="escolherFoto()">Escolher nova foto</button>
                 <button onclick="removerFoto()">Remover foto</button>
