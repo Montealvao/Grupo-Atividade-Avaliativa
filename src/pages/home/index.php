@@ -69,7 +69,7 @@ else if (isset($_GET["falha"])){
                         <label>Capacidade: {$itens['capacidade']}</label>
                         <label>Descrição: {$itens['descricao']}</label>                                    
                     </div>
-                    <form action='../agendar/agendar.php' method='GET'>
+                    <form action='../pagina_feita_por_ia/index.php' method='GET'>
                         <input type='hidden' name='id_espaco' value='{$itens['id']}'>
                         <button type='submit' class='btn'>Realizar reserva</button>
                     </form>
