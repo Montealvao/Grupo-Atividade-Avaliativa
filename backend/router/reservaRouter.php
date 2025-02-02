@@ -55,11 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 $id_espaco = $_POST['id_espaco'];
                 $nome = $_POST['nome'];
                 $capacidade = $_POST['capacidade'];
-                $capacidade = (int)$capacidade;
-                if ($capacidade ==0){
-                    header("location: ../../src/pages/editarEspaco/editarEspaco.php?erroCapacidade");
-                    break;
-                }
+                // $capacidade = (int)$capacidade;
+                // if ($capacidade <= 0){
+                //     header("location: ../../src/pages/editarEspaco/editarEspaco.php?erroCapacidade");
+                //     break;
+                // }
 
                 $descricao = $_POST['descricao'];
                 $resultado = $controller->editarEspaco($id_espaco,$nome,$capacidade,$descricao);
@@ -68,6 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
                 else if ($resultado =="erro"){
                     header("location: ../../src/pages/editarEspaco/editarEspaco.php?erro");
+                }
+                else if ($resultado =="erroCapacidade"){
+                    header("location: ../../src/pages/editarEspaco/editarEspaco.php?erroCapacidade");
                 }
             }
             break;
