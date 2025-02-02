@@ -1,33 +1,21 @@
 <?php
-
 session_start();
 $logado = isset($_SESSION['id_usuario']);
 $foto_perfil = isset($_SESSION['foto_perfil']) ? $_SESSION['foto_perfil'] : '../../../public/icons/perfil.svg';
 
-
 include __DIR__ . "/../../../backend/controller/userController.php";
 $userController = new userController();
 
-
 $espacos = $userController->listarEspacoCadastrado();
-
-if (isset($_GET["sucesso"])) {
-    echo "<script>alert('Reserva feito com sucesso')</script>";
-}
-else if (isset($_GET["falha"])){
-    echo "<script>alert('Espaço já com reserva')</script>";
-
-}
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Página inicial</title>
+    <title>Sabores Online</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -39,7 +27,7 @@ else if (isset($_GET["falha"])){
         <div class="H-direito">
             <?php if ($logado): ?>
                 <a href="../perfil/perfil.php">
-                <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : $foto_perfil; ?>" alt="Perfil" class="icone-perfil">
+                    <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : $foto_perfil; ?>" alt="Perfil" class="icone-perfil">
                 </a>
             <?php else: ?>
                 <a href="../login/login.php"><button>Entrar</button></a>
@@ -47,22 +35,24 @@ else if (isset($_GET["falha"])){
             <?php endif; ?>
         </div>
     </header>
+
     <div class="carrosel">
         <div class="imagens">
-            <img src="../../../public/images/carrosel1.svg" alt="">
-            <img src="../../../public/images/imagem-cadastro.svg" alt="">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" alt="Restaurante 1">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80" alt="Restaurante 2">
         </div>
         <div class="dots">
-            <span class="dot" onclick="imagematual(1)"></span>
-            <span class="dot" onclick="imagematual(2)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
         </div>
     </div>
+
     <div class="controle">
         <?php   
         foreach ($espacos as $itens){
             echo "<div class='controle-restaurante'>
                     <div class='imagem-restaurante'>
-                        <img src='https://s2-techtudo.glbimg.com/L9wb1xt7tjjL-Ocvos-Ju0tVmfc=/0x0:1200x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/q/l/TIdfl2SA6J16XZAy56Mw/canvaai.png' alt='reserva'>
+                        <img src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80' alt='{$itens['nome']}'>
                     </div>
                     <div class='label-restaurante'>
                         <label>Nome: {$itens['nome']}</label>
@@ -74,8 +64,8 @@ else if (isset($_GET["falha"])){
                         <button type='submit' class='btn'>Realizar reserva</button>
                     </form>
                 </div>";
-                }
-            ?>
+        }
+        ?>
     </div>
 
     <footer>
@@ -83,6 +73,6 @@ else if (isset($_GET["falha"])){
         <img src="../../../public/icons/logo.svg" alt="">
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
