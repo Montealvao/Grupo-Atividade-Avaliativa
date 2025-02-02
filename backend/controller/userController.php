@@ -73,18 +73,14 @@ class userController{
         }
     }    
     
-    public function AtualizarFoto($id,$foto_perfil){
+    public function AtualizarFoto($id, $foto_perfil){
         try{   
             $sql = "UPDATE usuarios SET foto_perfil = :foto_perfil WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":foto_perfil", $foto_perfil);
             $db->bindParam(":id", $id);
-            if($db->execute()){
-                return true;
-            }else{
-                echo "Erro ao executar a atualização";
-                return false;
-            }
+
+            return $db->execute();
             
         } catch (\Throwable $th) {
             echo $th->getMessage();

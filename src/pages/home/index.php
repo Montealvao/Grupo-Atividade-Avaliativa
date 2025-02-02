@@ -2,7 +2,7 @@
 
 session_start();
 $logado = isset($_SESSION['id_usuario']);
-
+$foto_perfil = isset($_SESSION['foto_perfil']) ? $_SESSION['foto_perfil'] : '../../../public/icons/perfil.svg';
 
 
 include __DIR__ . "/../../../backend/controller/userController.php";
@@ -39,7 +39,7 @@ else if (isset($_GET["falha"])){
         <div class="H-direito">
             <?php if ($logado): ?>
                 <a href="../perfil/perfil.php">
-                    <img src="../../../public/icons/perfil.svg" alt="Perfil" class="icone-perfil">
+                <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : $foto_perfil; ?>" alt="Perfil" class="icone-perfil">
                 </a>
             <?php else: ?>
                 <a href="../login/login.php"><button>Entrar</button></a>
