@@ -47,55 +47,62 @@ else if (isset($_GET['erroCapacidadeNula'])){
         </div>
         <h2><a style="text-decoration: none; color: white;" href="../perfil/logout.php">Logout</a></h2>  
     </header>    
-
-    <div  style="display: flex; justify-content: center; align-items: center; " class="cadastroEspaco">
-
-        <form action="../../../backend/router/reservaRouter.php?action=cadastrarEspaco" method="POST">
-            <p><h3>Cadastrar novo espaço:</h3></p>
-            <p><input class="btn" type="text" name="nome_espaco" placeholder="Nome:" id=""></p>
-            <p><input class="btn" type="text" name="capacidade" placeholder="Capacidade:" id=""></p>
-            <p><input  class="btn"type="text" name="descricao" placeholder="Descrição:" id=""></p>
-            <p><button class="btn" type="submit">Enviar</button></p>
-        </form>
-
-    </div>
-
-    <div class="tabela">
-        <table >
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Nome</td>
-                    <td>Capacidade</td>
-                    <td>Descrição</td>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php foreach($espacos as $item){
-                
-                    echo "
-                    <tr>
-                        
-                        <td>{$item['id']}</td>
-                        <td>{$item['nome']}</td>
-                        <td>{$item['capacidade']}</td>
-                        <td>{$item['descricao']}</td>
-                    </tr>";
-                }
-                ?>
-
-            </tbody>
+    <main>
 
 
-
-
-        </table>
+        <div class="cadastroEspaco">
+            <form action="../../../backend/router/reservaRouter.php?action=cadastrarEspaco" method="POST">
+                <h2>Cadastrar novo espaço:</h2>
+                <div class="form-group">
+                    <label for="nome">Nome do Espaço:</label>
+                    <input type="text" id="nome" name="nome_espaco" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Capacidade:</label>
+                    <input type="text" id="nome" name="capacidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Descrição:</label>
+                    <input type="text" id="nome" name="descricao" required>
+                </div>
+                <button type="submit" class="btn">Cadastrar</button>
+                <!-- ANTIGO MENU CADASTRAR -->
+                <!-- <p><input class="btn" type="text" name="nome_espaco" placeholder="Nome:" id=""></p> --> 
+                <!-- <p><input class="btn" type="text" name="capacidade" placeholder="Capacidade:" id=""></p> -->
+                <!-- <p><input  class="btn"type="text" name="descricao" placeholder="Descrição:" id=""></p> -->
+                <!-- <p><button class="btn" type="submit">Enviar</button></p> -->
+            </form>
+            
+        </div>
         
-
-
-    </div>
-
+        <div class="tabela">
+            <table >
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nome</td>
+                        <td>Capacidade</td>
+                        <td>Descrição</td>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <?php foreach($espacos as $item){
+                        
+                        echo "
+                        <tr>
+                        
+                        <td data-label='ID:'>{$item['id']}</td>
+                        <td data-label='Nome:'>{$item['nome']}</td>
+                        <td data-label='Capacidade:'>{$item['capacidade']}</td>
+                        <td data-label='Descrição:'>{$item['descricao']}</td>
+                        </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+</main>
 
 
  

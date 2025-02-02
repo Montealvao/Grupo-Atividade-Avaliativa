@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
                 $capacidade = $_POST['capacidade'];
                 $capacidade = (int)$capacidade;
-                if ($capacidade == 0){
+                if ($capacidade <= 0){
                     header("location: ../../src/pages/cadastrar-espaco/cadastroPagina.php?erroCapacidadeNula");
                     break;
                 }
