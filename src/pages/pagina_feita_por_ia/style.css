@@ -1,0 +1,391 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #111827;
+  color: #f3f4f6;
+  line-height: 1.5;
+}
+  
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+
+.H-esquerdo{
+  display: flex;
+  gap: 1rem;
+  margin-left: 1.5rem;
+}
+
+.H-direito{
+  display: flex;
+  gap: 1rem;
+  margin-right: 0.5rem;
+}
+
+.H-direito button{
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+
+.H-direito .icone-perfil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+  /* Layout */
+  .container {
+    min-height: 100vh;
+  }
+  
+  .hero {
+    height: 40vh;
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=2070");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #e5e7eb;
+  }
+  
+  .main-content {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+  
+  /* Restaurant Description */
+  .restaurant-description {
+    background-color: #1f2937;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 768px) {
+    .restaurant-description {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+  
+  .description-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #f59e0b;
+  }
+  
+  .description-text {
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .description-highlights {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  @media (min-width: 640px) {
+    .description-highlights {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #f59e0b;
+    font-weight: 500;
+  }
+  
+  .highlight-icon {
+    font-size: 1.5rem;
+  }
+  
+  .description-image {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+  }
+  
+  .restaurant-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  /* Form styles */
+  .reservation-form {
+    background-color: #1f2937;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .form-icon {
+    color: #f59e0b;
+    font-size: 1.5rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .form-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 1.25rem;
+  }
+  
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    padding-left: 2.5rem;
+    background-color: #374151;
+    border: none;
+    border-radius: 0.5rem;
+    color: #f3f4f6;
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    box-shadow: 0 0 0 2px #f59e0b;
+  }
+  
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .submit-button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #f59e0b;
+    color: #111827;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: #d97706;
+  }
+  
+  .form-disclaimer {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+  
+  /* Info section */
+  .info-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .info-card {
+    background-color: #1f2937;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .info-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .info-list {
+    list-style: none;
+    color: #d1d5db;
+  }
+  
+  .info-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .info-text {
+    color: #d1d5db;
+    line-height: 1.6;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.show {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background-color: #1f2937;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+  
+  .modal.show .modal-content {
+    transform: scale(1);
+  }
+  
+  .modal-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .success .modal-icon {
+    color: #10b981;
+  }
+  
+  .error .modal-icon {
+    color: #ef4444;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f3f4f6;
+  }
+  
+  .modal-text {
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .modal-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #f59e0b;
+    color: #111827;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .modal-button:hover {
+    background-color: #d97706;
+  }

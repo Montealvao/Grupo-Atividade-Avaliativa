@@ -72,8 +72,72 @@ form img{
     color: white;
     cursor: pointer;
 }
+
 .label{
     display: block;
     color: white;
     margin-bottom: 0.8rem;
+}
+
+@media (max-width: 1024px){
+    img{
+        width: 30rem;
+    }
+
+    .campo-login{
+        width: 50%;
+        flex-direction: column;
+        gap: 2rem;
+        border: none;
+    }
+    
+    .btn{
+        width: 18rem;
+    }
+    
+    .btn:nth-child(3){
+        width: 18rem;
+    }
+}
+
+@media (max-width: 768px){
+    img{
+        width: 25rem;
+    }
+
+    .campo-login{
+        flex-direction: column;
+        border: none;
+    }
+
+    .btn{
+        width: 13rem;
+    }
+    
+    .btn:nth-child(3){
+        margin-top: 1rem;
+        width: 14rem;
+    }
+}
+
+@media (max-width: 425px){
+    img{
+        width: 22.7rem;
+    }
+
+    .campo-login{
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        border: none;
+    }
+
+    .btn{
+        width: 15rem;
+    }
+    
+    .btn:nth-child(3){
+        margin-top: 2rem;
+        width: 16rem;
+    }
 }

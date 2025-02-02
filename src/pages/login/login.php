@@ -1,15 +1,22 @@
+<?php 
+session_start();
+if (isset($_SESSION['id_usuario'])){
+    header("location: ../home/index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./login.css">
 </head>
-<div class="campo-login">
+<body>
+    <div class="campo-login">
         <img src="../../../public/images/imagem-cadastro.svg" alt="imagem cadastro">
         <div class="form-container">
-
             <form action="../../../backend/router/loginRouter.php?action=validarLogin" method="POST">
         <img src="../../../public/icons/logo.svg" alt="logo">
         <div class="botoes-login">

@@ -13,6 +13,7 @@ if (!isset($_SESSION["id_usuario"])){
 
 $logado = isset($_SESSION['id_usuario']);
 
+
 if (!isset($_GET['id_espaco'])){
     header("location: ../home/index.php");
 }
