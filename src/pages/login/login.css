@@ -12,32 +12,24 @@ body{
     align-items: center;
 }
 
-.form-container {
+/* .form-container {
     display: flex;
     flex: 1;
     justify-content: center;
-}
+} */
 
-.form-container form{
+.form-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3rem;
-    background-color: #1E1E1E;
+    background-color: #1f2937;
     border-radius: 0.5rem;
-
 }   
 
-img{
-    width: 52rem;
-}
+.form-container form h2,p{
+    color: white;
 
-.campo-login{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 0.1rem gray solid;
-    width: 70%;
 }
 
 .botoes-login{
@@ -46,11 +38,9 @@ img{
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+    margin-top: 1rem;
 }
-form img{
-    width: 6rem;
-    margin-bottom: 4rem ;
-}
+
 .btn{
     padding-left: 0.5rem;
     border: 0.1rem #9CA3AF solid;
@@ -80,17 +70,7 @@ form img{
 }
 
 @media (max-width: 1024px){
-    img{
-        width: 30rem;
-    }
 
-    .campo-login{
-        width: 50%;
-        flex-direction: column;
-        gap: 2rem;
-        border: none;
-    }
-    
     .btn{
         width: 18rem;
     }
@@ -101,14 +81,6 @@ form img{
 }
 
 @media (max-width: 768px){
-    img{
-        width: 25rem;
-    }
-
-    .campo-login{
-        flex-direction: column;
-        border: none;
-    }
 
     .btn{
         width: 13rem;
@@ -121,17 +93,7 @@ form img{
 }
 
 @media (max-width: 425px){
-    img{
-        width: 22.7rem;
-    }
-
-    .campo-login{
-        flex-direction: column;
-        padding: 2rem;
-        gap: 2rem;
-        border: none;
-    }
-
+  
     .btn{
         width: 15rem;
     }

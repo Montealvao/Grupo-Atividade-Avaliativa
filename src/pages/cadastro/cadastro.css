@@ -4,40 +4,39 @@
 }
 
 body{
-    background-color: black;
+    background-color: #111827;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.form-container {
+/* .form-container {
     display: flex;
     flex: 1;
     justify-content: center;
-}
+} */
 
-.form-container form{
+.form-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3rem;
-    background-color: #1E1E1E;
+    background-color: #1f2937;
     border-radius: 0.5rem;
-
 }   
 
-img{
+/* img{
     width: 52rem;
-}
+} */
 
-.campo-cadastro{
+/* .campo-cadastro{
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 0.1rem gray solid;
     width: 80%;
-}
+} */
 
 .botoes-cadastro{
     display: flex;
