@@ -41,7 +41,7 @@ $reservas = $controller->verTodasAsReservasPorId($id_usuario);
 
 <div class="removerReserva">
     <div class="tabela">
-        <h3>Reservas</h3>
+        <h2>Reservas feitas</h2>
         <table >
             <thead>
                 <tr>

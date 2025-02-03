@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: black;
+    background-color: #111827;
     position: relative;
     height: 100vh;
 }
@@ -16,6 +16,7 @@ header{
     align-items: center ;
     padding: 1rem;
     margin-bottom: 4rem;
+    
 }
 
 .H-esquerdo{
@@ -46,16 +47,22 @@ footer img{
     align-items: center;
     gap: 2rem;
     margin-top: 5rem;
+    background-color: #1f2937;
+    border-radius: 0.8rem;
 
 
 }
 
 .tabela table{
-    border:  0.1rem gray solid;
-    width: 35%;
+    border:  0.1rem #475569;
     margin: 0 auto;
     border-collapse: collapse;
 
+}
+
+
+.tabela h2{
+    color: #f59e0b;
 }
 
 thead {
@@ -65,7 +72,7 @@ thead {
 
 
 .tabela tbody{
-    background-color: #13C296;
+    background-color: #475569;
     color: black;
     
 }
@@ -81,10 +88,13 @@ th {
 }
 
 td{
+    width: 10rem;
     color: white;
-    border: 0.1rem gray solid;
+    border: 0.1rem #475569;
     padding: 0.5rem;
     text-align: center;
+    padding: 0.5rem;
+
 }
 
 .removerReserva{
@@ -92,6 +102,7 @@ td{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .removerReserva div{
@@ -106,21 +117,11 @@ td{
     text-decoration: none;
 }
 
-/* Botão estiloso */
-.botaoRemover {
-    background-color: rgb(147, 2, 2);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 10px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: all 0.3s ease;
-}
 
 
 
 .btn{
+    background-color: #DC2626;
     color:black ;
     height: 2.5rem;
     border-radius: 0.5rem;
@@ -130,6 +131,6 @@ td{
 }
 
 .btn:hover{
-    background-color: rgba(230, 22, 22, 0.951);
+    background-color: #B91C1C;
     color: white;
 }
