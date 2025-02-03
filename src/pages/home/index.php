@@ -36,6 +36,7 @@ $espacos = $userController->listarEspacoCadastrado();
         </div>
     </header>
 
+
     <div class="carrosel">
         <div class="imagens">
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" alt="Restaurante 1">
@@ -59,7 +60,7 @@ $espacos = $userController->listarEspacoCadastrado();
                         <label>Capacidade: {$itens['capacidade']}</label>
                         <label>Descrição: {$itens['descricao']}</label>                                    
                     </div>
-                    <form action='../pagina_feita_por_ia/index.php' method='GET'>
+                    <form action='../agendar/index.php' method='GET'>
                         <input type='hidden' name='id_espaco' value='{$itens['id']}'>
                         <button type='submit' class='btn'>Realizar reserva</button>
                     </form>
