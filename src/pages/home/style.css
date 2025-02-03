@@ -172,7 +172,7 @@ header {
 }
 
 /* Footer */
-footer {
+/* footer {
     display: flex;
     padding: 2rem;
     justify-content: flex-end;
@@ -183,7 +183,7 @@ footer {
 
 footer img {
     width: 4rem;
-}
+} */
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -217,5 +217,10 @@ footer img {
 
     .imagens {
         height: 250px;
+    }
+
+    .H-botoes{
+        width: 5rem;
+        gap: 1rem;
     }
 }

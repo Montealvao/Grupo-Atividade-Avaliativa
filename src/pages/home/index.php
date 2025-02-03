@@ -30,8 +30,8 @@ $espacos = $userController->listarEspacoCadastrado();
                     <img src="<?php echo !empty($usuario['foto_perfil']) ? "/" . $usuario['foto_perfil'] : $foto_perfil; ?>" alt="Perfil" class="icone-perfil">
                 </a>
             <?php else: ?>
-                <a href="../login/login.php"><button>Entrar</button></a>
-                <a href="../cadastro/index.php"><button>Cadastrar-se</button></a>
+                <a href="../login/login.php" class="H-botoes"><button>Entrar</button></a>
+                <a href="../cadastro/index.php" class="H-botoes"><button>Cadastrar-se</button></a>
             <?php endif; ?>
         </div>
     </header>
@@ -68,10 +68,10 @@ $espacos = $userController->listarEspacoCadastrado();
         ?>
     </div>
 
-    <footer>
+    <!-- <footer>
         <h3>Equipe BF</h3>
         <img src="../../../public/icons/logo.svg" alt="">
-    </footer>
+    </footer> -->
 
     <script src="script.js"></script>
 </body>
