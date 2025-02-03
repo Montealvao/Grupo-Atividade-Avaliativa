@@ -260,8 +260,123 @@ class userController{
     }          
 
 
-    public function editarEspaco($id_espaco,$nome,$capacidade,$descricao = null){
+    public function editarEspaco($id_espaco,$nome,$capacidade,$descricao){
         try{
+            //MUDAR SO O NOME
+            if ($capacidade == "" && $descricao == ""){
+                $sql = "UPDATE espacos 
+                SET nome = :nome WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":nome", $nome, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+            }
+
+            // MUDAR SO A CAPACIDADE
+            else if ($nome == "" && $descricao == ""){
+                if ($capacidade <=0){
+                    return "erroCapacidade";
+                }
+                $sql = "UPDATE espacos 
+                SET capacidade = :capacidade
+                WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":capacidade", $capacidade, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+            }
+            //MUDAR SO A DESCRIÇÂO
+            else if ($nome == "" && $capacidade == ""){
+                $sql = "UPDATE espacos 
+                SET descricao = :descricao 
+                WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":descricao", $descricao, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+            }
+
+            // MUDAR NOME E CAPACIDADE
+            else if ($descricao == ""){
+                if ($capacidade <=0){
+                    return "erroCapacidade";
+                }
+                $sql = "UPDATE espacos 
+                SET nome = :nome,
+                    capacidade = :capacidade, 
+                    descricao = :descricao 
+                WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":nome", $nome, PDO::PARAM_STR);
+                $db->bindParam(":capacidade", $capacidade, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+            }
+
+            // MUDAR NOME E DESCRIÇÂO
+            else if ($capacidade == ""){
+                $sql = "UPDATE espacos 
+                SET nome = :nome, descricao = :descricao 
+                WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":nome", $nome, PDO::PARAM_STR);
+                $db->bindParam(":descricao", $descricao, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+
+            }
+            //MUDAR CAPACIDADE E DESCRIÇÂO
+            else if ($nome == ""){
+                if ($capacidade <=0){
+                    return "erroCapacidade";
+                }
+                $sql = "UPDATE espacos 
+                SET
+                    capacidade = :capacidade, 
+                    descricao = :descricao 
+                WHERE id = :id";
+    
+                $db = $this->coon->prepare($sql);
+                $db->bindParam(":id", $id_espaco, PDO::PARAM_INT);
+                $db->bindParam(":capacidade", $capacidade, PDO::PARAM_STR);
+                $db->bindParam(":descricao", $descricao, PDO::PARAM_STR);
+                $db->execute();
+                if ($db->rowCount() > 0) {
+                    echo "Espaço atualizado com sucesso!";
+                    return "espacoAtualizado";
+                }
+
+            }
+
+    
+
+
+
             $sql = "UPDATE espacos 
             SET nome = :nome,
                 capacidade = :capacidade, 
