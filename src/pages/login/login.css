@@ -29,7 +29,6 @@ body{
 
 .form-container form h2,p{
     color: white;
-
 }
 
 .botoes-login{
@@ -39,6 +38,11 @@ body{
     align-items: center;
     gap: 1.5rem;
     margin-top: 1rem;
+}
+
+.botoes-login input{
+    background-color: #374151;
+    color: white;
 }
 
 .btn{
@@ -51,15 +55,15 @@ body{
 }
 
 .btn::placeholder{
-    color: #CED4DA;
+    color: #d1d5db;
 }
 
 .btn:nth-child(3){
-    background-color:  #13C296;
+    background-color:  #f59e0b;
     margin-top: 2rem;
     width: 21.2rem;
     height: 3.1rem;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -68,7 +72,7 @@ body{
     color: white;
     margin-bottom: 0.8rem;
 }
-
+/* 
 @media (max-width: 1024px){
 
     .btn{
@@ -90,7 +94,7 @@ body{
         margin-top: 1rem;
         width: 14rem;
     }
-}
+} */
 
 @media (max-width: 425px){
   

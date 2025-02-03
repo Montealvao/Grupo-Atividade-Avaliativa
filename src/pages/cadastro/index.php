@@ -3,7 +3,6 @@ session_start();
 if (isset($_SESSION['id_usuario'])){
     header("location: ../home/index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +16,10 @@ if (isset($_SESSION['id_usuario'])){
 <body>
     <div class="form-container">
         <form action="../../../backend/router/userRouter.php?acao=cadastrar" method="POST">
+            <div class="cabecalho-cadastro">
+                <h2>Criar Conta</h2>
+                <p>Preencha os dados para se cadastrar</p>/
+            </div>    
             <div class="botoes-cadastro">
                 <div>
                     <label class="label">Nome Completo</label>

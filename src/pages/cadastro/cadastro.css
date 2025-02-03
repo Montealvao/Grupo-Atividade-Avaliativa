@@ -4,18 +4,12 @@
 }
 
 body{
-    background-color: #111827;
+    background-color: black;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-/* .form-container {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-} */
 
 .form-container{
     display: flex;
@@ -26,17 +20,17 @@ body{
     border-radius: 0.5rem;
 }   
 
-/* img{
-    width: 52rem;
-} */
-
-/* .campo-cadastro{
+.cabecalho-cadastro{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    border: 0.1rem gray solid;
-    width: 80%;
-} */
+    margin-bottom: 1rem;
+}
+
+.cabecalho-cadastro h2{
+    color: white;
+}
 
 .botoes-cadastro{
     display: flex;
@@ -46,9 +40,9 @@ body{
     gap: 1.5rem;
 }
 
-form img{
-    width: 6rem;
-    margin-bottom: 4rem ;
+.botoes-cadastro input{
+    background-color: #374151;
+    color: white;
 }
 
 .btn{
@@ -61,15 +55,15 @@ form img{
 }
 
 .btn::placeholder{
-    color: #CED4DA;
+    color: #d1d5db;
 }
 
 .btn:nth-child(5){
-    background-color:  #13C296;
+    background-color:#f59e0b;
     margin-top: 2rem;
     width: 21.2rem;
     height: 3.1rem;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 

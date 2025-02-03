@@ -16,8 +16,6 @@ if (isset($_SESSION['id_usuario'])){
 <body>
     <div class="form-container">
         <form action="../../../backend/router/loginRouter.php?action=validarLogin" method="POST">
-            <h2>Criar Conta</h2>
-            <p>Preencha os dados para se cadastrar</p>
             <div class="botoes-login">
                 <div>
                     <label class="label">Email</label>
@@ -28,7 +26,7 @@ if (isset($_SESSION['id_usuario'])){
                     <input type="password" placeholder="Senha" name="senha" class="btn">
                 </div>
                 <button type="submit" class="btn">Logar</button>
-                <p style="color: #8899A8; font-size: large;">Não tem conta? <a href="../cadastro/index.php" style="color: #5685EB; text-decoration: none;">Criar</a></p>
+                <p style="color: #d1d5db; font-size: large;">Não tem conta? <a href="../cadastro/index.php" style="color: #5685EB; text-decoration: none;">Criar</a></p>
             </div>  
         </form>
     </div>
