@@ -12,32 +12,23 @@ body{
     align-items: center;
 }
 
-.form-container {
+/* .form-container {
     display: flex;
     flex: 1;
     justify-content: center;
-}
+} */
 
-.form-container form{
+.form-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3rem;
-    background-color: #1E1E1E;
+    background-color: #1f2937;
     border-radius: 0.5rem;
-
 }   
 
-img{
-    width: 52rem;
-}
-
-.campo-login{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 0.1rem gray solid;
-    width: 70%;
+.form-container form h2,p{
+    color: white;
 }
 
 .botoes-login{
@@ -46,11 +37,28 @@ img{
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+    margin-top: 1rem;
 }
-form img{
-    width: 6rem;
-    margin-bottom: 4rem ;
+
+.botoes-login input{
+    background-color: #374151;
+    color: white;
 }
+
+.botoes-login .label{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.botoes-login .label i{
+    color: black;
+}
+
+.botoes-login label {
+    color: white;
+}
+
 .btn{
     padding-left: 0.5rem;
     border: 0.1rem #9CA3AF solid;
@@ -61,16 +69,17 @@ form img{
 }
 
 .btn::placeholder{
-    color: #CED4DA;
+    color: #d1d5db;
 }
 
 .btn:nth-child(3){
-    background-color:  #13C296;
+    background-color:  #f59e0b;
     margin-top: 2rem;
     width: 21.2rem;
     height: 3.1rem;
-    color: white;
+    color: black;
     cursor: pointer;
+    font-size: large;
 }
 
 .label{
@@ -78,19 +87,9 @@ form img{
     color: white;
     margin-bottom: 0.8rem;
 }
-
+/* 
 @media (max-width: 1024px){
-    img{
-        width: 30rem;
-    }
 
-    .campo-login{
-        width: 50%;
-        flex-direction: column;
-        gap: 2rem;
-        border: none;
-    }
-    
     .btn{
         width: 18rem;
     }
@@ -101,14 +100,6 @@ form img{
 }
 
 @media (max-width: 768px){
-    img{
-        width: 25rem;
-    }
-
-    .campo-login{
-        flex-direction: column;
-        border: none;
-    }
 
     .btn{
         width: 13rem;
@@ -118,20 +109,10 @@ form img{
         margin-top: 1rem;
         width: 14rem;
     }
-}
+} */
 
 @media (max-width: 425px){
-    img{
-        width: 22.7rem;
-    }
-
-    .campo-login{
-        flex-direction: column;
-        padding: 2rem;
-        gap: 2rem;
-        border: none;
-    }
-
+  
     .btn{
         width: 15rem;
     }
@@ -140,4 +121,6 @@ form img{
         margin-top: 2rem;
         width: 16rem;
     }
+
+    
 }
