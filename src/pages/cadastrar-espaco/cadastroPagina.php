@@ -71,7 +71,7 @@ else if (isset($_GET['erroCapacidadeNula'])){
         </div>
         
         <div class="tabela">
-            <table >
+            <table>
                 <thead>
                     <tr>
                         <td>ID</td>

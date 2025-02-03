@@ -43,6 +43,9 @@ main{
 .cadastroEspaco h2{
     color: #f59e0b;
 }
+form h2{
+    margin-bottom: 1rem;
+}
 
 .form-group {
     margin-bottom: 1rem;
@@ -85,15 +88,27 @@ main{
     background-color: #1D4ED8;
 }
 
-
-
 .tabela{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 5rem;
+    border:  0.1rem gray solid;
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.tabela thead{
+    background-color: #1E1E1E;
+}
+
+.tabela tbody{
+    background-color: #475569;
+    color: black;
+}
+
+.tabela th, .tabela td {
+    border: 0.1rem gray solid;
+    padding: 0.5rem;
+    text-align: center;
 }
 
 .tabela table{
@@ -102,41 +117,6 @@ main{
     margin: 0 auto;
     border-collapse: collapse;
 }
-
-thead {
-    background-color: #1E1E1E; 
-}
-
-
-.tabela tbody{
-    background-color: #475569;
-    color: black;
-}
-
-th {
-    border: 0.1rem gray solid;
-    padding: 0.5rem;
-    text-align: center;
-}
-
-.tabela tbody tr td{
-    color: black;
-}
-
-td{
-    max-width: 35rem;
-    color: white;
-    border: 0.1rem #475569;
-    padding: 0.5rem;
-    text-align: center;
-    padding: 0.5rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word; 
-    white-space: normal; 
-
-   
-}
-
 
 @media (max-width: 768px){
     footer{

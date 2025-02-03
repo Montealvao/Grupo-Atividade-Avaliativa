@@ -38,8 +38,8 @@ $espacos = $userController->listarEspacoCadastrado();
 
     <div class="carrosel">
         <div class="imagens">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" alt="Restaurante 1">
-            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80" alt="Restaurante 2">
+            <img src="../../../public/images/carrosel-1.jpg" alt="Restaurante 1">
+            <img src="../../../public/images/carrosel-2.jpg" alt="Restaurante 2">
         </div>
         <div class="dots">
             <span class="dot" onclick="ImagemAtual(1)"></span>
@@ -52,7 +52,7 @@ $espacos = $userController->listarEspacoCadastrado();
         foreach ($espacos as $itens){
         echo "<div class='controle-restaurante'>
                 <div class='imagem-restaurante'>
-                    <img src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80' alt='{$itens['nome']}'>
+                    <img src='../../../public/images/carrosel-1.jpg' alt='{$itens['nome']}'>
                 </div>
                 <div class='label-restaurante'>
                     <label>Nome: {$itens['nome']}</label>
