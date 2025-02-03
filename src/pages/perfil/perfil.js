@@ -11,5 +11,3 @@ function removerFoto() {
     document.getElementById('removerFoto').value = '1';
     document.getElementById('imagePerfil').submit();
 }
-
-
