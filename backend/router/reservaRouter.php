@@ -1,10 +1,6 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 include __DIR__ . "/../controller/userController.php";
-
-
 
 
 session_start();
@@ -55,12 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 $id_espaco = $_POST['id_espaco'];
                 $nome = $_POST['nome'];
                 $capacidade = $_POST['capacidade'];
-                // $capacidade = (int)$capacidade;
-                // if ($capacidade <= 0){
-                //     header("location: ../../src/pages/editarEspaco/editarEspaco.php?erroCapacidade");
-                //     break;
-                // }
-
                 $descricao = $_POST['descricao'];
                 $resultado = $controller->editarEspaco($id_espaco,$nome,$capacidade,$descricao);
                 if ($resultado == "espacoAtualizado"){

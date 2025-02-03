@@ -86,18 +86,3 @@ header{
 .pagination button:hover {
     background-color: darkgray;
 }
-
-footer{
-    position: absolute;
-    display: flex;
-    right: 0;
-    bottom: 0;
-    padding: 2rem;
-    align-items: center;    
-    gap: 1rem;
-}
-
-footer img{
-    width: 4rem;
-    
-}

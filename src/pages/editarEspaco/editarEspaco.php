@@ -27,10 +27,6 @@
     else if (isset($_GET["erroCapacidade"])) {
         echo "<script>alert('Insira valor na capacidade!')</script>";
     }
-
-
-  
-
 ?>
 
 
@@ -45,63 +41,50 @@
 <body>
     <header>
         <div class="H-esquerdo">
-        <h3 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h3>
+            <h3 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none; color: white;">Início</a></h3>
             <h3><a style="text-decoration: none;  color:white;" href="../perfil/perfil.php">Perfil</a></h3>
-        <h3><a style="text-decoration: none;  color:white;" href="../lista-usuarios/index.php">Lista</a></h3>
-        <h3><a  style="text-decoration: none; color: white;"  href="../cadastrar-espaco/cadastroPagina.php">Cadastrar espaço</a></h3>
+            <h3><a style="text-decoration: none;  color:white;" href="../lista-usuarios/index.php">Lista</a></h3>
+            <h3><a  style="text-decoration: none; color: white;"  href="../cadastrar-espaco/cadastroPagina.php">Cadastrar espaço</a></h3>
         </div>
         <h3><a style="text-decoration: none; color: white;" href="../perfil/logout.php">Logout</a></h3>  
     </header>    
 
     <div class="editarEspaco">
-    <div class="edit">
-    
-        <p id="titulo_edicao">Editar espaço:</p>
-        <form action="../../../backend/router/reservaRouter.php?action=editarEspaco" method="POST">
-            <div class="padding_input">
-            <input type="text" placeholder="id:" name="id_espaco" id="inputs">
-            </div>
-            <div class="padding_input">
-            <input type="text" placeholder="nome:" name="nome" id="inputs">
-            </div>
-            <div class="padding_input">
-            <input type="text" placeholder="capacidade:" name="capacidade" id="inputs">
-            </div>
-            <div class="padding_input">
-            <input type="text" placeholder="descrição:" name="descricao" id="inputs">
-            </div>
-            <div class="padding_input">
-            <button type="submit" id="botao">Enviar</button>
-            </div>
-        </form>
-
-
+        <div class="edit">
+            <p id="titulo_edicao">Editar espaço:</p>
+            <form action="../../../backend/router/reservaRouter.php?action=editarEspaco" method="POST">
+                <div class="padding_input">
+                    <input type="text" placeholder="id:" name="id_espaco" id="inputs">
+                </div>
+                <div class="padding_input">
+                    <input type="text" placeholder="nome:" name="nome" id="inputs">
+                </div>
+                <div class="padding_input">
+                    <input type="text" placeholder="capacidade:" name="capacidade" id="inputs">
+                </div>
+                <div class="padding_input">
+                    <input type="text" placeholder="descrição:" name="descricao" id="inputs">
+                </div>
+                <div class="padding_input">
+                    <button type="submit" id="botao">Enviar</button>
+                </div>
+            </form>
+        </div>
     </div>
-    </div>
-
 
     <div class="excluirEspaco">
     <div class="edit2">
         Excluir espaço:
         <form action="../../../backend/router/reservaRouter.php?action=excluirEspaco" method="POST">
-        <div class="padding_input">
-            <input type="text" placeholder="id:" name="id_espaco_excluir" id="inputs">
+            <div class="padding_input">
+                <input type="text" placeholder="id:" name="id_espaco_excluir" id="inputs">
             </div>
             <div class="padding_input">
-            <button type="submit" id="botao">Enviar</button>
+                <button type="submit" id="botao">Enviar</button>
             </div>
         </form>
     </div>
     </div>
-
-
-
- 
-
-    <footer>
-        <h3>Equipe BF</h3>
-        <img src="../../../public/icons/logo.svg" alt="">
-    </footer>
-
+    
 </body>
 </html>

@@ -72,20 +72,6 @@ class userController{
 
         }
     }    
-    
-    public function AtualizarFoto($id, $foto_perfil){
-        try{   
-            $sql = "UPDATE usuarios SET foto_perfil = :foto_perfil WHERE id = :id";
-            $db = $this->coon->prepare($sql);
-            $db->bindParam(":foto_perfil", $foto_perfil);
-            $db->bindParam(":id", $id);
-
-            return $db->execute();
-            
-        } catch (\Throwable $th) {
-            echo $th->getMessage();
-        }
-    }
 
     public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){
         try {
@@ -373,10 +359,6 @@ class userController{
 
             }
 
-    
-
-
-
             $sql = "UPDATE espacos 
             SET nome = :nome,
                 capacidade = :capacidade, 
@@ -401,7 +383,6 @@ class userController{
             }
         }
 
-
     public function deletarEspaco($id_espaco){
         try{
             $sql = "DELETE FROM espacos WHERE id = :id_espaco";
@@ -420,9 +401,7 @@ class userController{
             echo "Erro ao deletar espaço: " . $e->getMessage();
         }
 
-
         }
-
     }
 
 

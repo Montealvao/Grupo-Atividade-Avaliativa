@@ -24,45 +24,6 @@ header{
     margin-left: 1.5rem;
 }
 
-
-footer{
-    position: fixed;
-    display: flex;
-    right: 0;
-    bottom: 0;
-    padding: 2rem;
-    align-items: center;    
-    gap: 1rem;
-}
-
-footer img{
-    width: 4rem;
-}
-
-
-/* .btn{
-    padding-left: 0.5rem;
-    border: 0.1rem #9CA3AF solid;
-    border-radius: 0.5rem;
-    width: 20.5rem;
-    height: 2.5rem;
-    font-size: medium;
-    color: black;
-}
-
-.btn button{
-    background-color: #13C296;
-    
-}
-
-.btn:nth-child(6){
-    background-color: #13C296;
-    width: 21.2rem;
-    height: 2.5rem;
-    color: white;
-    cursor: pointer;
-} */
-
 main{
     display: flex;
     justify-content: center;
@@ -133,9 +94,6 @@ main{
     align-items: center;
     gap: 2rem;
     margin-top: 5rem;
-    /* background-color: #1f2937; */
-
-
 }
 
 .tabela table{
@@ -143,19 +101,16 @@ main{
     width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
-
 }
 
 thead {
     background-color: #1E1E1E; 
-    
 }
 
 
 .tabela tbody{
     background-color: #475569;
     color: black;
-    
 }
 
 th {
@@ -175,9 +130,9 @@ td{
     padding: 0.5rem;
     text-align: center;
     padding: 0.5rem;
-    word-wrap: break-word; /* Força a quebra de palavras longas */
-    overflow-wrap: break-word; /* Força a quebra de palavras longas */
-    white-space: normal; /* Permite a quebra de linha */
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    white-space: normal; 
 
    
 }
@@ -190,13 +145,7 @@ td{
 
     .tabela table{
         width: 80%;
-
     }
-    
-
-    
-
-
 }
 
 @media (max-width: 425px){

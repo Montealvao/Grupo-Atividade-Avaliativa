@@ -27,8 +27,8 @@ foreign key (id_espaco) references espacos(id)
 );
 
 insert into usuarios values
-(default,"Samuca","samuca@gmail.com","123","67999999999"),
-(default,"joao","joao@gmail.com","321","67988888888");
+(default,"Admin","admin@gmail.com","123","67999999999"),
+(default,"João","joao@gmail.com","321","67988888888");
 
 insert into espacos values
 (default, "La mance", 12, "Um restaurante chique é um local sofisticado, onde a experiência gastronômica vai além da simples refeição. Ao entrar, a ambientação refinada chama atenção, com decoração elegante, iluminação suave e uma atmosfera aconchegante, mas ao mesmo tempo imponente. O atendimento é impecável, com garçons bem treinados, discretos e atenciosos, prontos para garantir que cada detalhe da refeição seja perfeito."),

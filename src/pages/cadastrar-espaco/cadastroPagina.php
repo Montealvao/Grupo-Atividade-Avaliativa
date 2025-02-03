@@ -66,11 +66,6 @@ else if (isset($_GET['erroCapacidadeNula'])){
                     <input type="text" id="nome" name="descricao" required>
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
-                <!-- ANTIGO MENU CADASTRAR -->
-                <!-- <p><input class="btn" type="text" name="nome_espaco" placeholder="Nome:" id=""></p> --> 
-                <!-- <p><input class="btn" type="text" name="capacidade" placeholder="Capacidade:" id=""></p> -->
-                <!-- <p><input  class="btn"type="text" name="descricao" placeholder="Descrição:" id=""></p> -->
-                <!-- <p><button class="btn" type="submit">Enviar</button></p> -->
             </form>
             
         </div>
@@ -91,11 +86,10 @@ else if (isset($_GET['erroCapacidadeNula'])){
                         
                         echo "
                         <tr>
-                        
-                        <td data-label='ID:'>{$item['id']}</td>
-                        <td data-label='Nome:'>{$item['nome']}</td>
-                        <td data-label='Capacidade:'>{$item['capacidade']}</td>
-                        <td data-label='Descrição:'>{$item['descricao']}</td>
+                            <td data-label='ID:'>{$item['id']}</td>
+                            <td data-label='Nome:'>{$item['nome']}</td>
+                            <td data-label='Capacidade:'>{$item['capacidade']}</td>
+                            <td data-label='Descrição:'>{$item['descricao']}</td>
                         </tr>";
                     }
                     ?>
@@ -103,14 +97,5 @@ else if (isset($_GET['erroCapacidadeNula'])){
             </table>
         </div>
 </main>
-
-
- 
-
-    <footer>
-        <h3>Equipe BF</h3>
-        <img src="../../../public/icons/logo.svg" alt="">
-    </footer>
-
 </body>
 </html>

@@ -2,7 +2,6 @@
 
 include __DIR__ . "/../db/database.php";
 
-
 class LoginController{
     private $conn;
     
@@ -19,7 +18,6 @@ class LoginController{
         echo $db->execute();
         $usuario = $db->fetchAll();
 
-
         if ($usuario){
             session_start();
             $_SESSION["id_usuario"] = $usuario[0]["id"];
@@ -28,7 +26,6 @@ class LoginController{
         else{
             return false;
         }
-
 
     }
 

@@ -25,21 +25,6 @@ header{
     margin-left: 1.5rem;
 }
 
-footer{
-    position: absolute;
-    display: flex;
-    right: 0;
-    bottom: 0;
-    padding: 2rem;
-    align-items: center;    
-    gap: 1rem;
-}
-
-footer img{
-    width: 4rem;
-}
-
-
 .tabela{
     display: flex;
     flex-direction: column;
@@ -49,15 +34,12 @@ footer img{
     margin-top: 5rem;
     background-color: #1f2937;
     border-radius: 0.8rem;
-
-
 }
 
 .tabela table{
     border:  0.1rem #475569;
     margin: 0 auto;
     border-collapse: collapse;
-
 }
 
 
@@ -67,14 +49,12 @@ footer img{
 
 thead {
     background-color: #1E1E1E; 
-    
 }
 
 
 .tabela tbody{
     background-color: #475569;
-    color: black;
-    
+    color: black;  
 }
 
 th {
@@ -94,7 +74,6 @@ td{
     padding: 0.5rem;
     text-align: center;
     padding: 0.5rem;
-
 }
 
 .removerReserva{
@@ -102,7 +81,6 @@ td{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .removerReserva div{
@@ -116,9 +94,6 @@ td{
     color: black;
     text-decoration: none;
 }
-
-
-
 
 .btn{
     background-color: #DC2626;

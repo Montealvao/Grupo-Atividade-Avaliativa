@@ -80,11 +80,5 @@
             <a href="?pagina=<?php echo $paginaAtual + 1; ?>"><button>Próxima &raquo;</button></a>
         <?php endif; ?>
     </div>
-
-    <footer>
-        <h3>Equipe BF</h3>
-        <img src="../../../public/icons/logo.svg" alt="">
-    </footer>
-
 </body>
 </html>

@@ -8,10 +8,6 @@ $loginController = new LoginController();
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // if(isset($routes[$_GET["action"]])) {
-    //     $routes[$_GET["action"]]();
-    // }
-
     switch ($_GET['action'])  {
         case 'validarLogin':
             echo "FUNCINA";

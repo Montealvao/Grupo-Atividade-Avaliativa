@@ -1,12 +1,9 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 include_once __DIR__ . "/../db/database.php";
 
 class reservaController{
     private $coon;
-
     public function __construct(){
         $banco_dados = new Database();
         $this->coon = $banco_dados->connect();
@@ -35,7 +32,6 @@ class reservaController{
 
                 else{
 
-                
                     $data_horario = $data . " " . $horario;
                     echo "<br>data selecionada: ",$data;
                     echo "<br>data selecionada: ",$data_horario;
@@ -54,7 +50,7 @@ class reservaController{
                         echo "Espaço já reservado";  
                         return 1;
                     }
-        
+    
                     else{
         
                         $sql = "INSERT INTO reservas  VALUES (default,:id_usuario, :id_espaco, :data_horario)";
@@ -75,9 +71,5 @@ class reservaController{
         }
 
     }
-
-
-
-
 
 }

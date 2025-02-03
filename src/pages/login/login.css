@@ -12,12 +12,6 @@ body{
     align-items: center;
 }
 
-/* .form-container {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-} */
-
 .form-container{
     display: flex;
     flex-direction: column;
@@ -87,29 +81,6 @@ body{
     color: white;
     margin-bottom: 0.8rem;
 }
-/* 
-@media (max-width: 1024px){
-
-    .btn{
-        width: 18rem;
-    }
-    
-    .btn:nth-child(3){
-        width: 18rem;
-    }
-}
-
-@media (max-width: 768px){
-
-    .btn{
-        width: 13rem;
-    }
-    
-    .btn:nth-child(3){
-        margin-top: 1rem;
-        width: 14rem;
-    }
-} */
 
 @media (max-width: 425px){
   
@@ -122,5 +93,4 @@ body{
         width: 16rem;
     }
 
-    
 }

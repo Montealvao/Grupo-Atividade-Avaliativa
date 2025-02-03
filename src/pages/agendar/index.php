@@ -6,14 +6,10 @@ if (!isset($_SESSION["id_usuario"])){
   header("location: ../login/login.php");
 }
 
-
 $logado = isset($_SESSION['id_usuario']);
-
-
 
 include __DIR__ . "/../../../backend/controller/userController.php";
 $userController = new userController();
-
 
 $espacos = $userController->listarEspacoCadastrado();
 
@@ -70,14 +66,9 @@ else if (isset($_GET["erro_dataAntiga"])){
   </script>";
 }
 
-
-
-
 include __DIR__ . "/../../../backend/controller/reservaController.php";
 
 $reservaController = new reservaController();
-
-// $reservaController->fazerReserva(28,1,1,"2025-01-29","18:00:00");
 
 ?>
 
@@ -145,7 +136,6 @@ $reservaController = new reservaController();
       <div class="hero-overlay">
         <div class="hero-content">
           <h1 class="hero-title"> <?php $userController->getRoomById($id_espaco,"nome"); ?></h1>
-          <!-- <p class="hero-subtitle">Culinária Francesa Contemporânea</p> -->
         </div>
       </div>
     </div>
@@ -155,24 +145,17 @@ $reservaController = new reservaController();
         <div class="description-content">
           <h2 class="description-title">Sobre <?php $userController->getRoomById($id_espaco,"nome"); ?></h2>
           <p class="description-text">
-            <!-- Bem-vindo ao La Maison, um refúgio gastronômico onde a tradição francesa encontra a inovação contemporânea. Nossa cozinha, liderada pelo renomado Chef Pierre Dubois, combina técnicas clássicas francesas com ingredientes locais sazonais para criar experiências culinárias memoráveis. -->
             <?php $userController->getRoomById($id_espaco,"descricao"); ?>
-          <!-- </p>
-          <p class="description-text">
-            Em um ambiente acolhedor e sofisticado, oferecemos um cardápio que muda sazonalmente, sempre mantendo nossos pratos signature que conquistaram nossos clientes mais fiéis. Nossa adega conta com uma seleção premium de vinhos franceses e internacionais, cuidadosamente selecionados para harmonizar com nossa gastronomia. -->
           </p>
           <div class="description-highlights">
             <div class="highlight-item">
               <i class="lucide-star highlight-icon"></i>
-              <!-- <span>Estrela Michelin 2023</span> -->
             </div>
             <div class="highlight-item">
               <i class="lucide-utensils highlight-icon"></i>
-              <!-- <span>Menu Degustação 7 Tempos</span> -->
             </div>
             <div class="highlight-item">
               <i class="lucide-wine highlight-icon"></i>
-              <!-- <span>Carta de Vinhos Premiada</span> -->
             </div>
           </div>
         </div>
@@ -251,25 +234,6 @@ $reservaController = new reservaController();
           </p>
         </form>
       </div>
-
-      <!-- <div class="info-grid">
-        <div class="info-card">
-          <h3 class="info-title">Horário de Funcionamento</h3>
-          <ul class="info-list">
-            <li>Segunda - Quinta: 18:00 - 23:00</li>
-            <li>Sexta - Sábado: 18:00 - 00:00</li>
-            <li>Domingo: 18:00 - 22:00</li>
-          </ul>
-        </div>
-        <div class="info-card">
-          <h3 class="info-title">Localização</h3>
-          <p class="info-text">
-            Rua das Flores, 123<br>
-            Centro, São Paulo - SP<br>
-            CEP: 01234-567
-          </p>
-        </div>
-      </div> -->
     </div>
   </div>
 
