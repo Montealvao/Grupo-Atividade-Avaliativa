@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             if(!(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['telefone']))){
                 $resultado = $userController->AtualizarUsuario($_POST["id"], $_POST["nome"],$_POST["email"],$_POST["senha"],$_POST["telefone"]); ##colocar $foto_perfil
                 if($resultado){
-                    header("location: ../../src/pages/perfil/perfil.php");
+                    header("location: ../../src/pages/perfil/perfil.php?sucesso");
                 }else{
                     echo "Erro ao atualizar o usuario";
                     exit();
