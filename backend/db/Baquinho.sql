@@ -31,8 +31,8 @@ insert into usuarios values
 (default,"joao","joao@gmail.com","321","67988888888");
 
 insert into espacos values
-(default, "Quadra de futsal", 12, "uma quadra bem limpa e com gols com rede 12x8"),
-(default, "Salãozinho de festa", 20, "pequeno porem bem emocionante" );
+(default, "La mance", 12, "Um restaurante chique é um local sofisticado, onde a experiência gastronômica vai além da simples refeição. Ao entrar, a ambientação refinada chama atenção, com decoração elegante, iluminação suave e uma atmosfera aconchegante, mas ao mesmo tempo imponente. O atendimento é impecável, com garçons bem treinados, discretos e atenciosos, prontos para garantir que cada detalhe da refeição seja perfeito."),
+(default, "Dan buje", 20, "valoriza o conforto e a exclusividade, com mesas espaçadas para garantir privacidade, música ambiente suave e uma atenção constante aos mínimos detalhes. Frequentado por pessoas que buscam não apenas uma refeição, mas uma verdadeira imersão sensorial, um restaurante chique é o lugar ideal para celebrações especiais ou para quem deseja um momento de puro prazer gastronômico." );
 
 
 

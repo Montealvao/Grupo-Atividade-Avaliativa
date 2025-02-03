@@ -14,7 +14,7 @@ $espacos = $userController->listarEspacoCadastrado();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabores Online</title>
+    <title>Página inicial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@ $espacos = $userController->listarEspacoCadastrado();
         <div class="H-esquerdo">
             <h2>Início</h2>
             <h2>Explorar</h2>
-            <h2>Sobre</h2>
+            <h2>Sobre</h2> 
         </div>
         <div class="H-direito">
             <?php if ($logado): ?>

@@ -51,7 +51,7 @@ if (isset($_SESSION['id_usuario'])){
                     <input type="tel" name="telefone" placeholder="Digite um telefone válido" class="btn"> 
                 </div>
                 <button type="submit" class="btn">Criar Conta</button>
-                <p style="color: #d1d5db; font-size: large;">Já tem conta? <a href="../login/login.html" style="color: #5685EB; text-decoration: none;">Entrar</a></p>
+                <p style="color: #d1d5db; font-size: large;">Já tem conta? <a href="../login/login.php" style="color: #5685EB; text-decoration: none;">Entrar</a></p>
             </div>
         </form>
     </div>

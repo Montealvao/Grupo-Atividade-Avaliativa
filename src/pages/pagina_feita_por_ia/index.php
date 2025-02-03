@@ -87,7 +87,7 @@ $reservaController = new reservaController();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Maison - Reservas</title>
+  <title>Reservas</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/lucide-icons/dist/umd/lucide.css" rel="stylesheet">
 </head>
@@ -144,8 +144,8 @@ $reservaController = new reservaController();
     <div class="hero">
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1 class="hero-title">La Maison</h1>
-          <p class="hero-subtitle">Culinária Francesa Contemporânea</p>
+          <h1 class="hero-title"> <?php $userController->getRoomById($id_espaco,"nome"); ?></h1>
+          <!-- <p class="hero-subtitle">Culinária Francesa Contemporânea</p> -->
         </div>
       </div>
     </div>
