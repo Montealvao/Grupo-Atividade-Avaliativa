@@ -14,21 +14,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $resultado = $loginController->ValidarLogin($_POST["email"], $_POST["senha"]);
 
             if ($resultado){
-                header("Location: ../../src/pages/agendar/agendar.php");
+                header("Location: ../../src/pages/home/index.php");
             }
             else{
-                header("location: ../../src/pages/login/login.php");
+                header("location: ../../src/pages/login/login.php?erro");
             }
             break;
 
-        case  'validarsessao':
-            if (!isset($_SESSION["id_usuario"])){
-                header("location: ../../src/pages/login/login.php");
-            }
-            else {
-                header("location: ../../src/pages/agendar/agendar.php");
-            } 
-            break;
         default:
             echo "<h1>Not found 404</h1>";
             break;

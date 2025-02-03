@@ -14,14 +14,14 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    align-items: center ;
+    align-items: center;
     padding: 1rem;
     margin-bottom: 3rem;
 }
 
 .H-esquerdo{
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     margin-left: 1.5rem;
 }
 
