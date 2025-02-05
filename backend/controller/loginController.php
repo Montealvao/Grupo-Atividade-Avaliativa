@@ -14,7 +14,8 @@ class LoginController{
         $sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
         $db = $this->conn->prepare($sql);
         $db->bindParam(":email",$email);
-        $db->bindParam(":senha",$senha);
+        $hash = hash("sha256", $senha);
+        $db->bindParam(":senha",$hash);
         echo $db->execute();
         $usuario = $db->fetchAll();
 
