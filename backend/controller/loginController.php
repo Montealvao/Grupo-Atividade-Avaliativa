@@ -30,4 +30,20 @@ class LoginController{
 
     }
 
+    public function RecuperarSenha($email,$senha){
+        try {
+            $sql = "UPDATE usuarios SET senha = :senha where email = :email";
+            $db = $this->conn->prepare($sql);
+            $db->bindParam(":senha",$senha);
+            $db->bindParam(":email",$email);
+            if($db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
 }

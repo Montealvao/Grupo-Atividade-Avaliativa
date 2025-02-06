@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    background-color: #1f2937;
+    border-radius: 0.5rem;
+}   
+
+.form-container form h2,p{
+    color: white;
+}
+
+.botoes-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.botoes-login input{
+    background-color: #374151;
+    color: white;
+}
+
+.botoes-login .label{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.botoes-login .label i{
+    color: black;
+}
+
+.botoes-login label {
+    color: white;
+}
+
+.btn{
+    padding-left: 0.5rem;
+    border: 0.1rem #9CA3AF solid;
+    border-radius: 0.5rem;
+    width: 20.5rem;
+    height: 2.8rem;
+    font-size: medium;
+}
+
+.btn::placeholder{
+    color: #d1d5db;
+}
+
+.btn:nth-child(3){
+    background-color:  #f59e0b;
+    margin-top: 2rem;
+    width: 21.2rem;
+    height: 3.1rem;
+    color: black;
+    cursor: pointer;
+    font-size: large;
+}
+
+.label{
+    display: block;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+@media (max-width: 425px){
+  
+    .btn{
+        width: 15rem;
+    }
+    
+    .btn:nth-child(3){
+        margin-top: 2rem;
+        width: 16rem;
+    }
+
+}

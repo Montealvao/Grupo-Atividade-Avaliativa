@@ -8,7 +8,7 @@ $loginController = new LoginController();
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    switch ($_GET['action'])  {
+    switch ($_GET['acao'])  {
         case 'validarLogin':
             echo "FUNCINA";
             $resultado = $loginController->ValidarLogin($_POST["email"], $_POST["senha"]);
