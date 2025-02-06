@@ -38,7 +38,7 @@
     <header>
         <div class="H-esquerdo">
             <h2 style="cursor: pointer;"><a href="../home/index.php" style="text-decoration: none;">Início</a></h2>
-            <h2> <a href="../reservas/reserva.php"  style="text-decoration: none;" >Reservas</a></h2>
+            <h2> <a href="../reservas/reserva.php" style="text-decoration: none;" >Reservas</a></h2>
             <?php  if ($id_usuario == 1):  ?>
                 <h2> <a style="text-decoration: none;" href="../lista-usuarios/index.php">Admin</a> </h2>
             <?php  endif;?>
@@ -47,9 +47,15 @@
     </header>
    
     <div class="container">
-        <div class="perfil-imagem">
-            <img src="../../../public/icons/perfil.svg" alt="Perfil">
-        </div>
+            <div class="perfil-imagem">
+                <form action="../../../backend/router/userRouter.php?acao=editar_foto" method="POST" enctype="multipart/form-data" id="imagemPerfil">
+                    <label for="fotoPerfil">
+                        <img src="../../../public/icons/perfil.svg" style="cursor: pointer;" alt="Perfil">
+                    </label>
+                    <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
+                    <input type="file" name="foto_perfil" style="display: none;" id="fotoPerfil">
+                </form>
+            </div>
 
         <form action="../../../backend/router/userRouter.php?acao=editar" method="POST">
             <div class="botoes-editar">
@@ -74,5 +80,8 @@
             </div>
         </form>
     </div>
+    <script>
+    
+    </script>
 </body>
 </html>

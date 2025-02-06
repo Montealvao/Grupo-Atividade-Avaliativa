@@ -44,7 +44,8 @@ class userController{
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":email",$email);
-            $db->bindParam(":senha",$senha);
+            $hash = hash("sha256", $senha);
+            $db->bindParam(":senha",$hash);
             $db->bindParam(":telefone",$telefone);
             if($db->execute()){
                 return ['id' => $this->coon->lastInsertId()];
@@ -73,13 +74,30 @@ class userController{
         }
     }    
 
+    public function AtualizarFoto($nome,$id){
+        try {
+            $sql = "UPDATE usuarios SET perfil_foto = :perfil_foto where id = :id";
+            $db = $this->coon->prepare($sql);
+            $db->bindParam(":perfil_foto",$nome);
+            $db->bindParam(":id",$id);
+            if($db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
     public function AtualizarUsuario($id, $nome,$email,$senha,$telefone){
         try {
             $sql = "UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
             $db = $this->coon->prepare($sql);
             $db->bindParam(":nome",$nome);
             $db->bindParam(":email",$email);
-            $db->bindParam(":senha",$senha);
+            $hash = hash("sha256", $senha);
+            $db->bindParam(":senha",$hash);
             $db->bindParam(":telefone",$telefone);
             $db->bindParam(":id",$id);
             if($db->execute()){

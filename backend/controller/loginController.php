@@ -14,7 +14,8 @@ class LoginController{
         $sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
         $db = $this->conn->prepare($sql);
         $db->bindParam(":email",$email);
-        $db->bindParam(":senha",$senha);
+        $hash = hash("sha256", $senha);
+        $db->bindParam(":senha",$hash);
         echo $db->execute();
         $usuario = $db->fetchAll();
 
@@ -27,6 +28,22 @@ class LoginController{
             return false;
         }
 
+    }
+
+    public function RecuperarSenha($email,$senha){
+        try {
+            $sql = "UPDATE usuarios SET senha = :senha where email = :email";
+            $db = $this->conn->prepare($sql);
+            $db->bindParam(":senha",$senha);
+            $db->bindParam(":email",$email);
+            if($db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
 }
