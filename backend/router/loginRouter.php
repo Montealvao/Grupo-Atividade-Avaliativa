@@ -21,6 +21,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             break;
 
+        case 'enviarEmail':
+            $resultado = $loginController->PegarUsuarioPorEmail($_POST["email"]);
+            if($resultado){
+                header("location: ../../src/pages/login/login.php?emailEnviado=email");
+            }else{
+                header("../../src/pages/recuperar-senha/index.php?erro");
+            }
+
+            break;
+
+        case 'mudarSenha':
+            $resultado = $loginController->RecuperarSenha($_POST["email"], $_POST["senha"]);
+            echo $resultado;
+            
+            // if($resultado)            {
+            //     header("location: ../../src/pages/login/login.php?sucesso");
+            // }
+            // else{
+            //     header("location: ../../src/pages/login/login.php?erro");
+            // }
+
+            break;
+
         default:
             echo "<h1>Not found 404</h1>";
             break;

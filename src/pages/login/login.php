@@ -2,16 +2,19 @@
 session_start();
 if (isset($_SESSION['id_usuario'])){
     header("location: ../home/index.php");
-    
-    $titulo = "Login";
-    $acao = "ValidarLogin";
-    $botaoTitulo = "Entrar";
-    if (isset($_GET["email"])){
-        $action = "";
-        $buttonTitle = "Editar";
-        $titulo = "Mudar senha";
-    }
 }
+    $titulo = "Login";
+    $acao = "validarLogin";
+    $botaoTitulo = "Entrar";
+    $recuperarSenha = isset($_GET["emailEnviado"]);
+    if($recuperarSenha){
+        $acao = "mudarSenha";
+        $botaoTitulo = "Confirmar";
+        $titulo = "mudarSenha";
+    }else{
+        echo "deu errado";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +28,19 @@ if (isset($_SESSION['id_usuario'])){
 </head>
 <body>
     <div class="form-container">
-        <form action="../../../backend/router/loginRouter.php?acao=validarLogin" method="POST">
+        <form action="../../../backend/router/loginRouter.php?acao=<?php echo $acao ?>" method="POST">
+            <?php echo $recuperarSenha; ?>
             <div class="botoes-login">
+                <?php if($recuperarSenha): ?>
+                    <input type="hidden" name="email" value="<?php echo $recuperarSenha ?>" class="btn">
+                    <div>
+                        <div class="label">
+                            <i class="fas fa-lock icon"></i>
+                            <label class="label">Senha</label>
+                        </div>
+                        <input type="password" name="senha" placeholder="Digite sua senha" class="btn">     
+                    </div>
+                <?php else: ?>
                 <div>
                     <div class="label">
                         <i class="fas fa-envelope icon"></i>    
@@ -41,7 +55,9 @@ if (isset($_SESSION['id_usuario'])){
                     </div>
                     <input type="password" name="senha" placeholder="Digite sua senha" class="btn">     
                 </div>
-                <button type="submit" class="btn">Entrar</button>
+                <?php endif; ?>
+
+                <button type="submit" class="btn"><?php echo $botaoTitulo ?></button>
                 <p style="color: #d1d5db; font-size: large;">Não tem conta? <a href="../cadastro/index.php" style="color: #5685EB; text-decoration: none;">Criar</a></p>
                 <a href="../recuperar-senha/index.php" style="color: #5685EB; text-decoration: none;">Esqueceu a senha?</a>
             </div>  

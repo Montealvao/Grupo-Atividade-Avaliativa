@@ -32,7 +32,7 @@ class LoginController{
 
     public function RecuperarSenha($email,$senha){
         try {
-            $sql = "UPDATE usuarios SET senha = :senha where email = :email";
+            $sql = "UPDATE usuarios SET senha = :senha WhERE email LIKE %:email%";
             $db = $this->conn->prepare($sql);
             $db->bindParam(":senha",$senha);
             $db->bindParam(":email",$email);
@@ -45,5 +45,21 @@ class LoginController{
             //throw $th;
         }
     }
+    public function PegarUsuarioPorEmail($email){
+        try {
+            $sql = "SELECT * FROM usuarios WHERE email = :email";
+            $db = $this->conn->prepare($sql);
+            $db->bindParam(":email",$email);
+            if($db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+
 
 }

@@ -1,11 +1,9 @@
-<?php 
+<!-- <?php 
 session_start();
 if (isset($_SESSION['id_usuario'])){
     header("location: ../home/index.php");
 }
-?>
- 
-
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +16,7 @@ if (isset($_SESSION['id_usuario'])){
 </head>
 <body>
     <div class="form-container">
-        <form action="../../../backend/router/loginRouter.php?acao=validarLogin" method="POST">
+        <form action="../../../backend/router/loginRouter.php?acao=enviarEmail" method="POST">
             <div class="botoes-login">
                 <div>
                     <div class="label">
